@@ -123,8 +123,11 @@ a{color:var(--azul);}
 /* ─── portada ───────────────────────────────────────────── */
 .portada{position:relative;padding:96px 0 72px;overflow:hidden;}
 .filigrana{
-  position:absolute;top:-70px;right:-110px;width:min(620px,72vw);aspect-ratio:512/442;
+  position:absolute;top:-6px;right:-8%;width:min(620px,72vw);aspect-ratio:512/442;
   color:var(--azul);opacity:.055;pointer-events:none;
+}
+@media (max-width:720px){
+  .filigrana{top:-4px;right:-13%;width:min(430px,78vw);}
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .filigrana{opacity:.10;} }
 :root[data-theme="dark"] .filigrana{opacity:.10;}
