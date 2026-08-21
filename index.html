@@ -198,7 +198,12 @@ h1{
 
 .equipo{list-style:none;margin:0;padding:0;}
 .equipo li{margin:0 0 15px;line-height:1.42;}
-.equipo b{display:block;font-size:.845rem;font-weight:700;color:var(--tinta);}
+.equipo a{
+  display:inline-block;font-size:.845rem;font-weight:700;color:var(--tinta);
+  text-decoration:none;border-bottom:1px solid transparent;
+  transition:color .18s,border-color .18s;
+}
+.equipo a:hover{color:var(--azul);border-bottom-color:var(--azul);}
 .equipo span{display:block;font-size:.79rem;color:var(--tenue);}
 
 .temas{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;}
@@ -373,9 +378,9 @@ h1{
     <i class="buho filigrana" aria-hidden="true"></i>
     <div class="env">
       <p class="epigrafe">Facultad de Economía y Negocios · Universidad de Chile</p>
-      <h1>Informes de Research</h1>
+      <h1>Informes</h1>
       <p class="bajada">Club de Finanzas FEN UChile – Área de Research</p>
-      <p class="entrada">Somos el <strong>equipo de Research</strong> del Club de Finanzas. Escribimos desde el quehacer universitario, con un objetivo: <strong>acercar a los estudiantes a la actualidad financiera y económica</strong>. Aquí están todos los informes, con sus puntos clave y el PDF completo.</p>
+      <p class="entrada">Somos el <strong>equipo de Research</strong> del Club de Finanzas. Escribimos desde el quehacer universitario, con un objetivo: <strong>acercar a los estudiantes a la actualidad financiera y económica</strong>. Esta página es el repositorio de todos los informes hechos por el equipo.</p>
 
       <dl class="cifras">
         <div class="cifra">
@@ -385,10 +390,6 @@ h1{
         <div class="cifra">
           <dt>Período</dt>
           <dd>abr <small>–</small> ago <small>2026</small></dd>
-        </div>
-        <div class="cifra">
-          <dt>Páginas</dt>
-          <dd>55</dd>
         </div>
       </dl>
     </div>
@@ -400,12 +401,12 @@ h1{
       <aside class="riel">
         <p class="rotulo">Equipo</p>
         <ul class="equipo">
-          <li><b>Joaquín Martínez</b><span>Head of Research</span></li>
-          <li><b>Gaspar González</b><span>Macroeconomics Lead Researcher</span></li>
-          <li><b>Ramón Mazuela</b><span>Finance Lead Researcher</span></li>
-          <li><b>Nicolás González</b><span>Research Analyst</span></li>
-          <li><b>Cristóbal López</b><span>Research Analyst</span></li>
-          <li><b>Catalina Cortez</b><span>Research Analyst</span></li>
+          <li><a href="https://www.linkedin.com/in/joaquinmartinezojeda/" target="_blank" rel="noopener" aria-label="Joaquín Martínez en LinkedIn">Joaquín Martínez</a><span>Head of Research</span></li>
+          <li><a href="https://www.linkedin.com/in/gasgonzale/" target="_blank" rel="noopener" aria-label="Gaspar González en LinkedIn">Gaspar González</a><span>Macroeconomics Lead Researcher</span></li>
+          <li><a href="https://www.linkedin.com/in/ram%C3%B3n-mazuela-barr%C3%ADa-8b4698320/" target="_blank" rel="noopener" aria-label="Ramón Mazuela en LinkedIn">Ramón Mazuela</a><span>Finance Lead Researcher</span></li>
+          <li><a href="https://www.linkedin.com/in/nigonzalez/" target="_blank" rel="noopener" aria-label="Nicolás González en LinkedIn">Nicolás González</a><span>Research Analyst</span></li>
+          <li><a href="https://www.linkedin.com/in/crist%C3%B3bal-l%C3%B3pez-n%C3%BA%C3%B1ez-30192b349/" target="_blank" rel="noopener" aria-label="Cristóbal López en LinkedIn">Cristóbal López</a><span>Research Analyst</span></li>
+          <li><a href="https://www.linkedin.com/in/catalina-solange-cortez-boggen-81739b15b/" target="_blank" rel="noopener" aria-label="Catalina Cortez en LinkedIn">Catalina Cortez</a><span>Research Analyst</span></li>
         </ul>
 
         <p class="rotulo">Temas</p>
