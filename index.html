@@ -343,6 +343,32 @@ h1{
 .remate a{color:var(--tenue);text-decoration:none;border-bottom:1px solid var(--regla);}
 .remate a:hover{color:var(--azul);border-bottom-color:var(--azul);}
 
+/* ─── nube de términos ──────────────────────────────────── */
+.nube{padding:0 0 12px;}
+.nube .barra{margin-bottom:30px;}
+.voces{
+  display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;
+  gap:6px 26px;padding:8px 0 26px;
+}
+.voz{
+  font-size:var(--s);line-height:1.3;letter-spacing:-.02em;
+  transition:color .18s,opacity .18s;
+}
+.voz-a{color:var(--azul);font-weight:700;}
+.voz-b{color:var(--tinta);font-weight:600;}
+.voz-c{color:var(--tenue);font-weight:400;}
+.voces:hover .voz{opacity:.42;}
+.voces .voz:hover{color:var(--azul);opacity:1;}
+.nube-pie{
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.71rem;
+  color:var(--tenue);text-align:center;margin:0;
+  padding-top:16px;border-top:1px solid var(--regla);
+}
+@media (max-width:640px){
+  .voces{gap:4px 16px;}
+  .voz{font-size:calc(var(--s) * .8);}
+}
+
 /* ─── entrada en escena ─────────────────────────────────── */
 .surge{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1);}
 .surge.dentro{opacity:1;transform:none;}
@@ -636,6 +662,58 @@ h1{
 
     </div>
   </div>
+
+  <section class="nube surge" aria-labelledby="nube-rotulo">
+    <div class="env">
+      <div class="barra">
+        <p class="rotulo" id="nube-rotulo">Temas recurrentes</p>
+        <p class="conteo">10 informes · 40 términos</p>
+      </div>
+      <div class="voces">
+        <span class="voz voz-c" style="--s:1.28rem" title="16 menciones">vivienda</span>
+        <span class="voz voz-b" style="--s:1.67rem" title="26 menciones">costos</span>
+        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">PIB</span>
+        <span class="voz voz-b" style="--s:1.33rem" title="17 menciones">tasas</span>
+        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">alza</span>
+        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">impacto</span>
+        <span class="voz voz-b" style="--s:1.67rem" title="26 menciones">activos</span>
+        <span class="voz voz-b" style="--s:1.53rem" title="22 menciones">dólar</span>
+        <span class="voz voz-c" style="--s:1.19rem" title="14 menciones">global</span>
+        <span class="voz voz-c" style="--s:1.15rem" title="13 menciones">inteligencia artificial</span>
+        <span class="voz voz-c" style="--s:1.04rem" title="11 menciones">gasto</span>
+        <span class="voz voz-b" style="--s:1.33rem" title="17 menciones">oro</span>
+        <span class="voz voz-c" style="--s:0.91rem" title="9 menciones">TPM</span>
+        <span class="voz voz-b" style="--s:1.56rem" title="23 menciones">crecimiento</span>
+        <span class="voz voz-b" style="--s:1.45rem" title="20 menciones">demanda</span>
+        <span class="voz voz-a" style="--s:2.4rem" title="50 menciones">precios</span>
+        <span class="voz voz-c" style="--s:1.15rem" title="13 menciones">deuda</span>
+        <span class="voz voz-c" style="--s:0.98rem" title="10 menciones">inflación</span>
+        <span class="voz voz-c" style="--s:1.04rem" title="11 menciones">petróleo</span>
+        <span class="voz voz-a" style="--s:2.12rem" title="40 menciones">ETF</span>
+        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">tipo de cambio</span>
+        <span class="voz voz-b" style="--s:1.28rem" title="16 menciones">shock</span>
+        <span class="voz voz-a" style="--s:1.9rem" title="33 menciones">mercado</span>
+        <span class="voz voz-a" style="--s:1.77rem" title="29 menciones">oferta</span>
+        <span class="voz voz-b" style="--s:1.56rem" title="23 menciones">inversión</span>
+        <span class="voz voz-b" style="--s:1.41rem" title="19 menciones">flujos</span>
+        <span class="voz voz-a" style="--s:1.87rem" title="32 menciones">fiscal</span>
+        <span class="voz voz-a" style="--s:1.7rem" title="27 menciones">cobre</span>
+        <span class="voz voz-c" style="--s:1.19rem" title="14 menciones">expectativas</span>
+        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">ajuste</span>
+        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">estructural</span>
+        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">energía</span>
+        <span class="voz voz-c" style="--s:0.91rem" title="9 menciones">valoración</span>
+        <span class="voz voz-b" style="--s:1.49rem" title="21 menciones">capital</span>
+        <span class="voz voz-b" style="--s:1.49rem" title="21 menciones">impuestos</span>
+        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">IPO</span>
+        <span class="voz voz-c" style="--s:0.8rem" title="8 menciones">centros de datos</span>
+        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">ingresos</span>
+        <span class="voz voz-c" style="--s:1.04rem" title="11 menciones">política monetaria</span>
+        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">riesgo</span>
+      </div>
+      <p class="nube-pie">Términos más frecuentes en el texto de los informes publicados a la fecha.</p>
+    </div>
+  </section>
 </main>
 
 <footer class="colofon">
