@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Informes de Research — Club de Finanzas FEN UChile</title>
+<meta name="description" content="Archivo de informes del Área de Research del Club de Finanzas FEN UChile: análisis de coyuntura macroeconómica y de mercados, con puntos clave y PDF completo.">
+<meta name="author" content="Club de Finanzas FEN UChile — Área de Research">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Informes de Research — Club de Finanzas FEN UChile">
+<meta property="og:description" content="Análisis de coyuntura macroeconómica y de mercados del Área de Research del Club de Finanzas FEN UChile.">
+<meta property="og:image" content="https://joaquin-vmo.github.io/club-finanzas/assets/favicon.png">
+<meta name="theme-color" content="#2033D8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0F16" media="(prefers-color-scheme: dark)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+
+<style>
+/* ─── tokens ────────────────────────────────────────────── */
+:root{
+  --azul:#2033D8;
+  --azul-tenue:#4A5AE4;
+  --azul-fondo:#EEF0FE;
+  --tinta:#12141C;
+  --cuerpo:#3C4150;
+  --tenue:#767B8A;
+  --papel:#FFFFFF;
+  --pliego:#F4F5FB;
+  --regla:#E1E3EF;
+  --realce:rgba(32,51,216,.09);
+  --buho:url("assets/buho.png");
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --azul:#8B98FF;
+    --azul-tenue:#6E7DF5;
+    --azul-fondo:#1A1E33;
+    --tinta:#EEEFF6;
+    --cuerpo:#B4BACB;
+    --tenue:#828899;
+    --papel:#0D0F16;
+    --pliego:#151824;
+    --regla:#242839;
+    --realce:rgba(139,152,255,.13);
+  }
+}
+:root[data-theme="dark"]{
+  --azul:#8B98FF;
+  --azul-tenue:#6E7DF5;
+  --azul-fondo:#1A1E33;
+  --tinta:#EEEFF6;
+  --cuerpo:#B4BACB;
+  --tenue:#828899;
+  --papel:#0D0F16;
+  --pliego:#151824;
+  --regla:#242839;
+  --realce:rgba(139,152,255,.13);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--papel);
+  color:var(--cuerpo);
+  font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+a{color:var(--azul);}
+:focus-visible{outline:2px solid var(--azul);outline-offset:3px;border-radius:2px;}
+
+.env{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+/* ─── el búho, como máscara: toma el color del tema ─────── */
+.buho{
+  -webkit-mask-image:var(--buho);mask-image:var(--buho);
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:center;mask-position:center;
+  -webkit-mask-size:contain;mask-size:contain;
+  background-color:currentColor;
+  display:block;
+}
+
+/* ─── encabezado corrido (el del PDF, vivo) ─────────────── */
+.corrido{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--papel) 88%,transparent);
+  backdrop-filter:saturate(1.6) blur(14px);
+  -webkit-backdrop-filter:saturate(1.6) blur(14px);
+  border-bottom:1px solid var(--regla);
+}
+.corrido .env{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  height:66px;
+}
+.marca{display:flex;align-items:center;gap:12px;color:var(--tinta);text-decoration:none;min-width:0;}
+.marca .buho{width:30px;height:26px;flex:none;}
+.marca b{
+  display:block;font-size:.735rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;line-height:1.35;white-space:nowrap;
+}
+.marca span{
+  display:block;font-size:.66rem;font-weight:500;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--tenue);line-height:1.35;
+}
+.folio{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:.75rem;color:var(--tenue);
+  display:flex;align-items:baseline;gap:16px;white-space:nowrap;
+}
+.folio em{font-style:normal;}
+.folio .pag{color:var(--azul);font-weight:500;font-variant-numeric:tabular-nums;}
+@media (max-width:720px){ .folio em{display:none;} }
+
+/* ─── portada ───────────────────────────────────────────── */
+.portada{position:relative;padding:96px 0 72px;overflow:hidden;}
+.filigrana{
+  position:absolute;top:-70px;right:-110px;width:min(620px,72vw);aspect-ratio:512/442;
+  color:var(--azul);opacity:.055;pointer-events:none;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .filigrana{opacity:.10;} }
+:root[data-theme="dark"] .filigrana{opacity:.10;}
+
+.portada .env{position:relative;}
+.epigrafe{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tenue);margin:0 0 26px;
+}
+h1{
+  font-size:clamp(2.5rem,6.4vw,4.5rem);
+  font-weight:700;line-height:1.08;letter-spacing:-.025em;
+  color:var(--azul);margin:0;text-wrap:balance;max-width:15ch;
+}
+.bajada{
+  font-size:clamp(1rem,1.5vw,1.15rem);font-weight:700;color:var(--azul-tenue);
+  margin:22px 0 0;letter-spacing:-.005em;
+}
+.entrada{
+  max-width:62ch;margin:26px 0 0;font-size:1.03rem;color:var(--cuerpo);
+}
+.entrada strong{color:var(--tinta);font-weight:600;}
+
+.cifras{
+  display:flex;flex-wrap:wrap;gap:0;margin:44px 0 0;
+  border-top:1px solid var(--regla);
+}
+.cifra{
+  padding:20px 34px 0 0;margin-right:34px;
+  border-right:1px solid var(--regla);
+}
+.cifra:last-child{border-right:0;margin-right:0;padding-right:0;}
+.cifra dt{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tenue);
+  margin:0 0 4px;
+}
+.cifra dd{
+  margin:0;font-size:1.6rem;font-weight:700;color:var(--tinta);
+  line-height:1.2;font-variant-numeric:tabular-nums;letter-spacing:-.02em;
+}
+.cifra dd small{font-size:.9rem;font-weight:500;color:var(--tenue);letter-spacing:0;}
+
+/* ─── cuerpo a dos columnas, como la portada del informe ── */
+.pliego{
+  display:grid;grid-template-columns:206px 1fr;gap:0;
+  padding:0 0 40px;align-items:start;
+}
+.riel{
+  position:sticky;top:106px;
+  padding:6px 34px 40px 0;
+  border-right:1px solid var(--regla);
+}
+.columna{padding:6px 0 0 46px;min-width:0;}
+@media (max-width:900px){
+  .pliego{grid-template-columns:1fr;}
+  .riel{position:static;border-right:0;border-bottom:1px solid var(--regla);padding:0 0 30px;margin-bottom:34px;}
+  .columna{padding:0;}
+}
+
+.rotulo{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tenue);margin:0 0 18px;
+}
+.riel .rotulo + .rotulo{margin-top:34px;}
+
+.equipo{list-style:none;margin:0;padding:0;}
+.equipo li{margin:0 0 15px;line-height:1.42;}
+.equipo b{display:block;font-size:.845rem;font-weight:700;color:var(--tinta);}
+.equipo span{display:block;font-size:.79rem;color:var(--tenue);}
+
+.temas{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;}
+.tema{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:.71rem;letter-spacing:.02em;
+  padding:5px 11px;border:1px solid var(--regla);border-radius:100px;
+  background:transparent;color:var(--tenue);cursor:pointer;
+  transition:color .18s,border-color .18s,background-color .18s;
+}
+.tema:hover{color:var(--azul);border-color:var(--azul-tenue);}
+.tema[aria-pressed="true"]{
+  background:var(--azul);border-color:var(--azul);color:#fff;
+}
+:root[data-theme="dark"] .tema[aria-pressed="true"]{color:#0D0F16;}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .tema[aria-pressed="true"]{color:#0D0F16;}
+}
+
+/* ─── lista de informes ─────────────────────────────────── */
+.barra{
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding-bottom:14px;margin-bottom:0;border-bottom:1px solid var(--tinta);
+}
+.barra .rotulo{margin:0;}
+.conteo{
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.72rem;
+  color:var(--tenue);font-variant-numeric:tabular-nums;
+}
+
+.informe{border-bottom:1px solid var(--regla);}
+.informe[hidden]{display:none;}
+
+.informe > summary{
+  list-style:none;cursor:pointer;
+  display:grid;grid-template-columns:100px 1fr auto;gap:22px;align-items:baseline;
+  padding:22px 4px 22px 0;
+  transition:background-color .2s;
+}
+.informe > summary::-webkit-details-marker{display:none;}
+.informe > summary:hover{background:var(--realce);}
+.fecha{
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.755rem;
+  color:var(--tenue);font-variant-numeric:tabular-nums;letter-spacing:.01em;
+  white-space:nowrap;padding-top:2px;
+}
+.rubro{
+  font-size:clamp(1.02rem,1.6vw,1.16rem);font-weight:700;line-height:1.42;
+  color:var(--azul);letter-spacing:-.012em;text-wrap:balance;
+}
+.pliegos{
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.755rem;
+  color:var(--tenue);white-space:nowrap;display:flex;align-items:center;gap:14px;
+  padding-top:2px;
+}
+.cruz{
+  width:11px;height:11px;position:relative;flex:none;color:var(--tenue);
+  transition:transform .28s cubic-bezier(.4,0,.2,1),color .2s;
+}
+.cruz::before,.cruz::after{
+  content:"";position:absolute;inset:50% 0 auto;height:1.5px;background:currentColor;
+  transform:translateY(-50%);
+}
+.cruz::after{transform:translateY(-50%) rotate(90deg);transition:opacity .28s;}
+.informe[open] .cruz{transform:rotate(180deg);color:var(--azul);}
+.informe[open] .cruz::after{opacity:0;}
+.informe[open] > summary{background:transparent;}
+
+@media (max-width:640px){
+  .informe > summary{grid-template-columns:1fr auto;gap:6px 14px;}
+  .fecha{grid-column:1;grid-row:1;}
+  .pliegos{grid-column:2;grid-row:1;}
+  .rubro{grid-column:1 / -1;grid-row:2;}
+}
+
+/* ─── claves numeradas: el gesto propio del informe ─────── */
+.detalle{padding:2px 0 34px;}
+.claves{list-style:none;counter-reset:clave;margin:0;padding:0;max-width:66ch;}
+.claves li{
+  counter-increment:clave;
+  display:grid;grid-template-columns:56px 1fr;gap:0 10px;
+  margin:0 0 22px;
+}
+.claves li::before{
+  content:counter(clave);
+  font-size:2.4rem;font-weight:700;line-height:.94;color:var(--azul);
+  letter-spacing:-.04em;font-variant-numeric:lining-nums;
+}
+.claves p{margin:0;text-align:justify;hyphens:auto;font-size:.955rem;line-height:1.68;}
+@media (max-width:640px){
+  .claves li{grid-template-columns:40px 1fr;}
+  .claves li::before{font-size:1.9rem;}
+  .claves p{text-align:left;hyphens:none;}
+}
+
+.pie-informe{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  margin-top:26px;padding-top:18px;border-top:1px solid var(--regla);max-width:66ch;
+}
+.abrir{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.83rem;font-weight:600;letter-spacing:.01em;
+  color:var(--azul);text-decoration:none;
+  padding:9px 17px;border:1px solid var(--azul);border-radius:2px;
+  transition:background-color .18s,color .18s;
+}
+.abrir:hover{background:var(--azul);color:var(--papel);}
+:root[data-theme="dark"] .abrir:hover{color:#0D0F16;}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .abrir:hover{color:#0D0F16;}
+}
+.marbete{
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.71rem;
+  color:var(--tenue);
+}
+.marbete::before{content:"— ";}
+
+.vacio{
+  padding:56px 0;text-align:center;color:var(--tenue);font-size:.92rem;
+}
+.vacio[hidden]{display:none;}
+
+/* ─── colofón ───────────────────────────────────────────── */
+.colofon{
+  margin-top:76px;border-top:1px solid var(--regla);
+  background:var(--pliego);padding:56px 0 64px;
+}
+.colofon .env{display:grid;gap:38px;justify-items:center;text-align:center;}
+.colofon .buho{width:52px;height:45px;color:var(--tinta);opacity:.55;}
+.aviso{
+  max-width:62ch;margin:0;font-size:.8rem;line-height:1.66;color:var(--tenue);
+}
+.remate{
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.71rem;
+  letter-spacing:.03em;color:var(--tenue);margin:0;
+}
+.remate a{color:var(--tenue);text-decoration:none;border-bottom:1px solid var(--regla);}
+.remate a:hover{color:var(--azul);border-bottom-color:var(--azul);}
+
+/* ─── entrada en escena ─────────────────────────────────── */
+.surge{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1);}
+.surge.dentro{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important;}
+  .surge{opacity:1;transform:none;}
+  html{scroll-behavior:auto;}
+}
+</style>
+
+<noscript><style>.surge{opacity:1;transform:none;}</style></noscript>
+</head>
+<body>
+
+<header class="corrido">
+  <div class="env">
+    <a class="marca" href="#">
+      <i class="buho" aria-hidden="true"></i>
+      <span>
+        <b>Club de Finanzas FEN UChile</b>
+        <span>Área de Research</span>
+      </span>
+    </a>
+    <div class="folio">
+      <em>Research · Club de Finanzas FEN</em>
+      <span class="pag">p.&nbsp;<span id="folio-n">1</span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="portada">
+    <i class="buho filigrana" aria-hidden="true"></i>
+    <div class="env">
+      <p class="epigrafe">Facultad de Economía y Negocios · Universidad de Chile</p>
+      <h1>Informes de Research</h1>
+      <p class="bajada">Club de Finanzas FEN UChile – Área de Research</p>
+      <p class="entrada">Somos el <strong>equipo de Research</strong> del Club de Finanzas. Escribimos desde el quehacer universitario, con un objetivo: <strong>acercar a los estudiantes a la actualidad financiera y económica</strong>. Aquí están todos los informes, con sus puntos clave y el PDF completo.</p>
+
+      <dl class="cifras">
+        <div class="cifra">
+          <dt>Informes</dt>
+          <dd>10</dd>
+        </div>
+        <div class="cifra">
+          <dt>Período</dt>
+          <dd>abr <small>–</small> ago <small>2026</small></dd>
+        </div>
+        <div class="cifra">
+          <dt>Páginas</dt>
+          <dd>55</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="env">
+    <div class="pliego">
+
+      <aside class="riel">
+        <p class="rotulo">Equipo</p>
+        <ul class="equipo">
+          <li><b>Joaquín Martínez</b><span>Head of Research</span></li>
+          <li><b>Gaspar González</b><span>Macroeconomics Lead Researcher</span></li>
+          <li><b>Ramón Mazuela</b><span>Finance Lead Researcher</span></li>
+          <li><b>Nicolás González</b><span>Research Analyst</span></li>
+          <li><b>Cristóbal López</b><span>Research Analyst</span></li>
+          <li><b>Catalina Cortez</b><span>Research Analyst</span></li>
+        </ul>
+
+        <p class="rotulo">Temas</p>
+        <div class="temas" id="temas">
+          <button class="tema" type="button" data-tema="*" aria-pressed="true">Todos</button>
+          <button class="tema" type="button" data-tema="macro-cl" aria-pressed="false">Macro Chile</button>
+          <button class="tema" type="button" data-tema="macro-gl" aria-pressed="false">Macro global</button>
+          <button class="tema" type="button" data-tema="commodities" aria-pressed="false">Commodities</button>
+          <button class="tema" type="button" data-tema="mercados" aria-pressed="false">Mercados</button>
+          <button class="tema" type="button" data-tema="equity" aria-pressed="false">Renta variable</button>
+          <button class="tema" type="button" data-tema="fiscal" aria-pressed="false">Política fiscal</button>
+          <button class="tema" type="button" data-tema="corp" aria-pressed="false">Finanzas corporativas</button>
+        </div>
+      </aside>
+
+      <div class="columna">
+        <div class="barra">
+          <p class="rotulo">Archivo</p>
+          <p class="conteo"><span id="conteo-n">10</span> informes</p>
+        </div>
+
+        <div id="archivo">
+
+          <details class="informe surge" data-temas="commodities macro-gl">
+            <summary>
+              <span class="fecha">21 ago 2026</span>
+              <span class="rubro">Determinantes del precio del oro y el giro hacia los bancos centrales</span>
+              <span class="pliegos">5 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>El oro carece de flujos de caja, no paga dividendos ni cupones y su rentabilidad depende solo de la apreciación de su precio. Más que una inversión orientada a maximizar retornos, opera como un seguro contra riesgos sistémicos.</p></li>
+                <li><p>Su precio responde a tasas reales, inflación, dólar y apetito por riesgo. Sin embargo, la relación inversa con las tasas reales, cercana a -0,73 entre 2003 y 2022, se desplomó a prácticamente cero desde 2023, cuando el metal se apreció pese a rendimientos reales positivos.</p></li>
+                <li><p>El cambio de comprador marginal explica ese quiebre. Los bancos centrales superaron las mil toneladas anuales entre 2022 y 2024, frente a 473 de promedio en la década previa, tras un congelamiento de reservas rusas que revalorizó al oro como activo sin riesgo de sanción.</p></li>
+                <li><p>Chile se sumó al movimiento, con un Banco Central que volvió a comprar oro en febrero de 2026 tras 26 años. Para el inversionista local, parte de la cobertura que ofrece el metal ya se obtiene mediante exposición al dólar, dado el carácter procíclico del peso.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-08-21_determinantes_oro.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Commodities · Macro global</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe surge" data-temas="mercados">
+            <summary>
+              <span class="fecha">14 ago 2026</span>
+              <span class="rubro">El desplome de Situational Awareness</span>
+              <span class="pliegos">5 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>Leopold Aschenbrenner, valedictorian de Columbia a los 19 años y ex investigador del equipo de Superalignment de OpenAI, convirtió el ensayo que publicó tras su despido en abril de 2024 en la tesis de inversión de su propio fondo de cobertura.</p></li>
+                <li><p>El hedge fund Situational Awareness LP fue creado en septiembre de 2024 apostando por la infraestructura que alimenta a la IA, semiconductores, centros de datos y energía. El fondo creció desde US$225 millones semilla hasta más de US$20.000 millones en 18 meses, con retornos sobre 1.000 % y un apalancamiento de hasta cuatro veces el capital.</p></li>
+                <li><p>Tras caer un 67 % en julio de 2026 y enfrentar llamadas de margen de Goldman Sachs, JPMorgan y Bank of America exigiendo garantías, el fondo se vio obligado a liquidar un bloque de alrededor de US$16.000 millones de cartera pública a Citadel, con un descuento superior al 10 %.</p></li>
+                <li><p>El fondo no vendió por un cambio en los fundamentales de su tesis de inversión, sino por restricciones de liquidez en su balance. Al operar con apalancamiento no es el dueño sino el acreedor quien decide cuándo vender. En estos casos, una rentabilidad extraordinaria suele reflejar sobreexposición más que generación de alfa.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-08-14_situational_awareness.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Mercados</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe surge" data-temas="fiscal corp">
+            <summary>
+              <span class="fecha">05 ago 2026</span>
+              <span class="rubro">La reintegración tributaria y el escudo tributario de la deuda</span>
+              <span class="pliegos">6 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>El 4 de agosto de 2026 el Congreso despachó la Ley de Reconstrucción Nacional y Desarrollo Económico y Social. En materia corporativa restablece la integración total del sistema de renta hacia el año tributario 2031. La ley aún no se promulga, ya que quedan pendientes vetos del Ejecutivo y el pronunciamiento del Tribunal Constitucional.</p></li>
+                <li><p>El debate se ha dado en clave de recaudación y sostenibilidad fiscal, pero el régimen de integración fija además un parámetro central de finanzas corporativas. Determina cuánto vale el escudo tributario de la deuda para quien finalmente recibe el flujo.</p></li>
+                <li><p>La cadena lógica parte de Modigliani y Miller: con impuestos corporativos el escudo tributario aumenta el valor de la empresa con deuda. Al incorporar impuestos personales, es relevante modelar el régimen de integración del sistema, ya que un sistema desintegrado reduce el escudo tributario.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-08-05_reintegracion_tributaria.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Política fiscal · Finanzas corporativas</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe surge" data-temas="equity">
+            <summary>
+              <span class="fecha">11 jun 2026</span>
+              <span class="rubro">SpaceX IPO: entre fundamentales y expectativas</span>
+              <span class="pliegos">7 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>SpaceX saldría a bolsa el 12 de junio de 2026 a US$135 por acción, con una recaudación cercana a US$75.000 millones y una valoración próxima a US$1,75 billones. Sería la mayor IPO registrada, por sobre Alibaba y Saudi Aramco, a un múltiplo cercano a 90 veces ventas.</p></li>
+                <li><p>El valor se sostiene en tres segmentos en etapas distintas. Lanzamientos aporta la base tecnológica y la integración vertical, Starlink es el único negocio rentable con una utilidad operativa cercana a US$1.190 millones en el primer trimestre de 2026, y xAI concentra las pérdidas y el 76 % del Capex del período.</p></li>
+                <li><p>La estructura de la operación favorece la demanda inicial. El free float esperado entre 4 % y 8 % y las nuevas reglas del Nasdaq-100, que permiten entrada rápida y ponderación ajustada por flotación, pueden atraer flujos pasivos relevantes sobre una oferta acotada.</p></li>
+                <li><p>El precio fijo publicado antes del roadshow reduce el rol de los bancos en la formación del libro de órdenes. La pregunta central es cuánto del valor proviene de resultados actuales y cuánto de expectativas sobre Starlink, lanzamientos y la viabilidad de la infraestructura de xAI, lo que anticipa fuerte volatilidad inicial.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-06-11_spacex_ipo.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Renta variable</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe surge" data-temas="mercados">
+            <summary>
+              <span class="fecha">01 jun 2026</span>
+              <span class="rubro">ETF: récord, gestión activa y su primera gran prueba de estrés</span>
+              <span class="pliegos">6 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>Los activos globales en ETF alcanzaron US$19,9 billones al cierre de 2025, un alza del 33,7 % interanual, con flujos netos récord por US$2,4 billones. Estados Unidos concentra cerca de dos tercios del total, con US$13,43 billones en activos y US$1,50 billones de flujos en el año.</p></li>
+                <li><p>La gestión activa pasó a ser el principal motor de crecimiento dentro del envoltorio ETF. Los ETF activos globales llegaron a US$1,92 billones (+64,5 %) y en EE.UU. captaron el 31 % de los flujos pese a representar solo el 11 % de los activos. Cerca del 85 % de los lanzamientos de 2025 fueron activos y, por primera vez, superaron en número a los pasivos.</p></li>
+                <li><p>La ofensiva de EE.UU. e Israel contra Irán (28 de febrero de 2026) y el cierre del Estrecho de Ormuz empujaron al Brent por sobre los US$113. La respuesta de los ETF fue bifurcada: los fondos de transporte marítimo y energía se dispararon (BWET +411 % en el trimestre), mientras Corea (EWY) y defensa retrocedieron.</p></li>
+                <li><p>La industria aprobó su primer gran stress test geopolítico. Los flujos agregados se mantuvieron netamente positivos durante todo el primer cuatrimestre y los productos conservaron liquidez. La recuperación tras el cese al fuego reforzó la tesis de que estos episodios suelen ser oportunidad de compra antes que catalizador de un mercado bajista prolongado.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-06-01_etf.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Mercados</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe surge" data-temas="commodities macro-cl">
+            <summary>
+              <span class="fecha">19 may 2026</span>
+              <span class="rubro">Cobre en máximos históricos: oferta estructural, demanda tecnológica y tipo de cambio en Chile</span>
+              <span class="pliegos">6 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>El metal alcanzó US$6,57/lb el 13 de mayo de 2026, máximo histórico con un alza del 42,8 % interanual. La demanda estructural de inteligencia artificial, vehículos eléctricos y redes de energía renovable converge sobre una oferta tensionada por la escasez de ácido sulfúrico derivada del conflicto EE.UU.–Irán.</p></li>
+                <li><p>Pese a que el cobre representa alrededor del 13,6 % del PIB y a la bonanza del metal, la producción cae cerca del 6 % en Q1 2026 y la cadena de suministro acusa el impacto de la escasez de insumos críticos.</p></li>
+                <li><p>El alza del cobre aprecia el peso vía oferta de divisas: las mineras convierten más dólares a pesos para cubrir costos locales, aumentando la oferta de divisas y reduciendo el precio del dólar. La correlación inversa entre precio del cobre y USD/CLP es uno de los rasgos más robustos del mercado cambiario chileno en las últimas dos décadas.</p></li>
+                <li><p>La relación cobre–peso no es mecánica: el tipo de cambio responde también al diferencial de tasas Chile–EE.UU., la balanza comercial y las expectativas fiscales y políticas. La caída productiva de Q1 2026 ilustra además que un precio récord no garantiza mayores ingresos de divisas si el volumen exportado se contrae simultáneamente.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-05-19_cobre.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Commodities · Macro Chile</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe surge" data-temas="fiscal">
+            <summary>
+              <span class="fecha">11 may 2026</span>
+              <span class="rubro">Más allá del 19 %: rebaja del IVA a la vivienda</span>
+              <span class="pliegos">7 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>El impacto real en los precios será muy inferior al 19 % nominal de la medida. La ley excluye el valor del terreno de la base imponible y las constructoras mantienen créditos fiscales inmovilizados que no pueden recuperar fácilmente: la rebaja efectiva se situaría entre un 2 % y un 7 % según proyecciones de la CChC, o en torno al 10 % según consultoras del mercado.</p></li>
+                <li><p>La escasez de suelo urbano asequible y las rigideces regulatorias estructurales mantienen una oferta inmobiliaria altamente inelástica en el país. Acorde al modelo de incidencia tributaria, esta inflexibilidad permite que los oferentes capturen la mayor porción del beneficio fiscal.</p></li>
+                <li><p>La exención resulta ser una política socialmente regresiva y con escasa focalización. Beneficia de forma desproporcionada a inversionistas y hogares de altos ingresos, que son los únicos con real capacidad de ahorro y cumplimiento de los exigentes requisitos del crédito hipotecario actual.</p></li>
+                <li><p>La iniciativa introduce distorsiones en la asignación de capital al reducir artificialmente el costo de reposición y elevar la Q de Tobin del sector. Además, su transitoriedad de 12 meses genera disrupciones intertemporales.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-05-11_iva_vivienda.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Política fiscal</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe surge" data-temas="macro-cl">
+            <summary>
+              <span class="fecha">28 abr 2026</span>
+              <span class="rubro">RPM de abril: TPM en 4,5 % y mayor cautela ante el riesgo de persistencia inflacionaria</span>
+              <span class="pliegos">3 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>El Consejo del BCCh mantuvo la TPM en 4,5 % por unanimidad, decisión en línea con el consenso de mercado. La pausa monetaria se extiende y el comunicado adopta un sesgo más cauteloso que el del IPoM de marzo.</p></li>
+                <li><p>La prolongación del conflicto en Medio Oriente sostiene el petróleo en niveles elevados y presiona al alza las proyecciones inflacionarias. En contraste, los mercados muestran resiliencia: bolsas al alza, apreciación cambiaria y cobre en torno a US$6 la libra.</p></li>
+                <li><p>La actividad local sorprendió a la baja en febrero (Imacec no minero −0,3 % anual) por factores de oferta, mientras la inversión se desacelera. La inflación total de marzo (2,8 %) superó lo previsto, aunque la subyacente (3,4 %) se mantuvo en línea y las expectativas a dos años continúan ancladas.</p></li>
+                <li><p>El Consejo focaliza su atención en la transmisión y persistencia inflacionaria, sin orientación explícita sobre el próximo movimiento. En este escenario, no anticipamos recortes adicionales de TPM en el corto plazo.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-04-28_rpm_abril.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Macro Chile</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe surge" data-temas="commodities macro-gl">
+            <summary>
+              <span class="fecha">24 abr 2026</span>
+              <span class="rubro">El shock petrolero de 2026: reconfiguración global y desafíos para la política monetaria en Chile</span>
+              <span class="pliegos">4 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>El Banco Central enfrenta un complejo dilema: el shock petrolero impulsa el IPC hacia un 4 % para el segundo trimestre de 2026. La autoridad debe calibrar la TPM con extrema cautela para evitar que los efectos de segunda vuelta y el pass-through cambiario desanclen las expectativas inflacionarias.</p></li>
+                <li><p>A diferencia de otros importadores netos, Chile cuenta con la resiliencia del cobre impulsado por la IA y la transición energética. Este viento de cola en los términos de intercambio actúa como un amortiguador macroeconómico, otorgando un margen de maniobra crucial para absorber el shock externo.</p></li>
+                <li><p>El cierre del Estrecho de Ormuz genera una transferencia masiva de bienestar hacia exportadores fuera del Golfo Pérsico (EE.UU., Rusia, Brasil). Mientras estos países perciben ingresos fiscales extraordinarios, los grandes importadores asiáticos enfrentan presiones en sus cuentas corrientes y suministros.</p></li>
+                <li><p>Aunque la menor intensidad energética global limita el impacto al 0,5 % del PIB mundial, el shock actúa como un catalizador estructural. La vulnerabilidad expuesta forzará a las potencias a acelerar inversiones en seguridad energética y a adelantar la transición hacia matrices limpias para reducir la dependencia geopolítica del crudo.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-04-24_shock_petrolero.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Commodities · Macro global</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe surge" data-temas="fiscal macro-cl">
+            <summary>
+              <span class="fecha">17 abr 2026</span>
+              <span class="rubro">El ajuste fiscal de la administración de Kast: magnitud y efecto sobre el crecimiento 2026–2028</span>
+              <span class="pliegos">6 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>El Consejo Fiscal Autónomo constató un déficit estructural del 3,6 % del PIB en 2025, superando ampliamente las metas. Ante el riesgo de que la deuda sobrepase el nivel prudente del 45 %, se declaró emergencia fiscal.</p></li>
+                <li><p>El gobierno implementará un recorte de US$3.800 millones en 2026, equivalente al 1,1 % del PIB, enfocado principalmente en gasto ministerial. Los US$3.000 millones restantes del plan se integrarán en la Ley de Presupuestos 2027.</p></li>
+                <li><p>El costo directo sobre el crecimiento se distribuye en el tiempo: entre 0,4 y 0,5 pp en 2026 y un arrastre adicional de 0,6 a 0,8 pp en 2027, con efecto acumulado de 1,0 a 1,3 pp. El impacto es acotado porque el recorte cae sobre gasto corriente, de menor multiplicador que la inversión pública.</p></li>
+                <li><p>A mediano plazo, una consolidación fiscal creíble reduciría premios por riesgo y reactivaría la inversión privada. De funcionar este mecanismo, el costo se disiparía hacia fines de 2027, permitiendo que la economía converja a su crecimiento tendencial en 2028.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-04-17_ajuste_fiscal.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Política fiscal · Macro Chile</span>
+              </div>
+            </div>
+          </details>
+
+        </div>
+
+        <p class="vacio" id="vacio" hidden>No hay informes de este tema todavía.</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="colofon">
+  <div class="env">
+    <i class="buho" aria-hidden="true"></i>
+    <p class="aviso">Estos informes responden a un propósito estrictamente académico y formativo, enmarcado en el quehacer universitario, y en ningún caso deben interpretarse como una recomendación o asesoría de inversión.</p>
+    <p class="remate">Club de Finanzas FEN UChile · Área de Research · <a href="https://joaquin-vmo.github.io/" target="_blank" rel="noopener">joaquin-vmo.github.io</a></p>
+  </div>
+</footer>
+</body>
+</html>
+
+<script>
+(function () {
+  "use strict";
+  var informes = Array.prototype.slice.call(document.querySelectorAll(".informe"));
+  var chips    = Array.prototype.slice.call(document.querySelectorAll(".tema"));
+  var conteo   = document.getElementById("conteo-n");
+  var vacio    = document.getElementById("vacio");
+  var folio    = document.getElementById("folio-n");
+  var quieto   = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ── filtro por tema ───────────────────────────────────── */
+  function filtrar(tema) {
+    var vivos = 0;
+    informes.forEach(function (art) {
+      var temas = (art.getAttribute("data-temas") || "").split(" ");
+      var pasa  = tema === "*" || temas.indexOf(tema) !== -1;
+      art.hidden = !pasa;
+      if (!pasa) { art.open = false; }
+      if (pasa) { vivos++; }
+    });
+    conteo.textContent = vivos;
+    vacio.hidden = vivos !== 0;
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      chips.forEach(function (o) { o.setAttribute("aria-pressed", String(o === chip)); });
+      filtrar(chip.getAttribute("data-tema"));
+    });
+  });
+
+  /* ── un solo informe abierto a la vez ──────────────────── */
+  informes.forEach(function (art) {
+    art.addEventListener("toggle", function () {
+      if (!art.open) { return; }
+      informes.forEach(function (otro) { if (otro !== art) { otro.open = false; } });
+    });
+  });
+
+  /* ── el encabezado se pagina como el documento ─────────── */
+  var tictac = false;
+  function paginar() {
+    tictac = false;
+    var corte = window.innerHeight * 0.42;
+    var n = 1;
+    for (var i = 0; i < informes.length; i++) {
+      if (!informes[i].hidden && informes[i].getBoundingClientRect().top < corte) { n = i + 2; }
+    }
+    folio.textContent = n;
+  }
+  window.addEventListener("scroll", function () {
+    if (!tictac) { tictac = true; window.requestAnimationFrame(paginar); }
+  }, { passive: true });
+  paginar();
+
+  /* ── entrada escalonada ────────────────────────────────── */
+  var surgen = document.querySelectorAll(".surge");
+  if (quieto || !("IntersectionObserver" in window)) {
+    Array.prototype.forEach.call(surgen, function (el) { el.classList.add("dentro"); });
+    return;
+  }
+  var ojo = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e, i) {
+      if (!e.isIntersecting) { return; }
+      var el = e.target;
+      window.setTimeout(function () { el.classList.add("dentro"); }, i * 55);
+      ojo.unobserve(el);
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+  Array.prototype.forEach.call(surgen, function (el) { ojo.observe(el); });
+}());
+</script>
