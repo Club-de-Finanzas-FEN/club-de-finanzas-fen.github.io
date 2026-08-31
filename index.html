@@ -121,13 +121,14 @@ a{color:var(--azul);}
 @media (max-width:720px){ .folio em{display:none;} }
 
 /* ─── portada ───────────────────────────────────────────── */
-.portada{position:relative;padding:96px 0 72px;overflow:hidden;}
+.portada{position:relative;padding:96px 0 34px;overflow:hidden;}
+.zocalo{position:relative;}
 .filigrana{
-  position:absolute;top:-6px;right:-8%;width:min(620px,72vw);aspect-ratio:512/442;
+  position:absolute;bottom:100%;right:-4%;width:min(520px,58vw);aspect-ratio:512/442;
   color:var(--azul);opacity:.055;pointer-events:none;
 }
 @media (max-width:720px){
-  .filigrana{top:-4px;right:-13%;width:min(430px,78vw);}
+  .filigrana{right:-8%;width:min(360px,68vw);}
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .filigrana{opacity:.10;} }
 :root[data-theme="dark"] .filigrana{opacity:.10;}
@@ -401,23 +402,25 @@ h1{
 
 <main>
   <section class="portada">
-    <i class="buho filigrana" aria-hidden="true"></i>
     <div class="env">
       <p class="epigrafe">Facultad de Economía y Negocios · Universidad de Chile</p>
       <h1>Informes</h1>
       <p class="bajada">Club de Finanzas FEN UChile – Área de Research</p>
       <p class="entrada">Somos el <strong>equipo de Research</strong> del Club de Finanzas. Escribimos desde el quehacer universitario, con un objetivo: <strong>acercar a los estudiantes a la actualidad financiera y económica</strong>. Esta página es el repositorio de todos los informes hechos por el equipo.</p>
 
-      <dl class="cifras">
-        <div class="cifra">
-          <dt>Informes</dt>
-          <dd>11</dd>
-        </div>
-        <div class="cifra">
-          <dt>Período</dt>
-          <dd>abr <small>–</small> ago <small>2026</small></dd>
-        </div>
-      </dl>
+      <div class="zocalo">
+        <i class="buho filigrana" aria-hidden="true"></i>
+        <dl class="cifras">
+          <div class="cifra">
+            <dt>Informes</dt>
+            <dd>11</dd>
+          </div>
+          <div class="cifra">
+            <dt>Período</dt>
+            <dd>abr <small>–</small> ago <small>2026</small></dd>
+          </div>
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -687,7 +690,6 @@ h1{
     <div class="env">
       <div class="barra">
         <p class="rotulo" id="nube-rotulo">Temas recurrentes</p>
-        <p class="conteo">10 informes · 40 términos</p>
       </div>
       <div class="voces">
         <span class="voz voz-c" style="--s:1.28rem" title="16 menciones">vivienda</span>
