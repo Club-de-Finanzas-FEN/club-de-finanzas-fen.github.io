@@ -3,7 +3,7 @@
 Sitio del archivo de informes del Área de Research del Club de Finanzas de la
 Facultad de Economía y Negocios de la Universidad de Chile.
 
-**https://club-de-finanzas-fen.github.io/**
+**club-de-finanzas-fen.github.io**
 
 ## Aviso
 
