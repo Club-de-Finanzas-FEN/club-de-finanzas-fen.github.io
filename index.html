@@ -327,6 +327,110 @@ h1{
 }
 .vacio[hidden]{display:none;}
 
+/* ─── equipo: visible siempre, sin importar el apartado ─── */
+.tira-equipo{padding:12px 0 34px;}
+.tira-equipo .rotulo{
+  padding-bottom:14px;margin:0 0 22px;border-bottom:1px solid var(--regla);
+}
+.tira-equipo .equipo{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px 34px;
+}
+.tira-equipo .equipo li{margin:0;}
+@media (max-width:900px){
+  .tira-equipo .equipo{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:560px){
+  .tira-equipo .equipo{grid-template-columns:1fr;gap:15px;}
+}
+
+/* ─── puertas: los dos apartados de la portada ──────────── */
+.puertas{padding:8px 0 0;}
+.puertas .env{
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;
+}
+@media (max-width:760px){
+  .puertas .env{grid-template-columns:1fr;gap:16px;}
+}
+.puerta{
+  position:relative;overflow:hidden;
+  display:grid;grid-template-rows:auto auto 1fr auto;gap:0;
+  text-align:left;font:inherit;color:inherit;cursor:pointer;
+  background:var(--pliego);border:1px solid var(--regla);border-radius:3px;
+  padding:30px 32px 26px;
+  transition:border-color .22s,background-color .22s,transform .22s;
+}
+.puerta::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:var(--azul);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+}
+.puerta:hover{border-color:var(--azul-tenue);transform:translateY(-2px);}
+.puerta[aria-expanded="true"]{
+  background:var(--azul-fondo);border-color:var(--azul);
+}
+.puerta[aria-expanded="true"]::after{transform:scaleX(1);}
+.puerta-n{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--tenue);font-variant-numeric:tabular-nums;margin-bottom:14px;
+}
+.puerta-tit{
+  font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:700;line-height:1.06;
+  letter-spacing:-.028em;color:var(--azul);margin-bottom:12px;
+}
+.puerta-baja{
+  font-size:.9rem;line-height:1.62;color:var(--cuerpo);max-width:40ch;
+  margin-bottom:22px;
+}
+.puerta-pie{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--azul);
+}
+.flecha{
+  width:9px;height:9px;flex:none;position:relative;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg) translate(-1px,-1px);
+  transition:transform .28s cubic-bezier(.4,0,.2,1);
+}
+.puerta[aria-expanded="true"] .flecha{transform:rotate(-135deg) translate(-2px,-2px);}
+
+/* ─── paneles desplegables ──────────────────────────────── */
+.panel{padding-top:14px;}
+.panel[hidden]{display:none;}
+#panel-flash{padding-bottom:52px;}
+
+/* ─── informes flash ────────────────────────────────────── */
+.filtros-flash{margin:22px 0 4px;}
+.flash-lista{border-top:1px solid var(--regla);border-bottom:1px solid var(--tinta);}
+.cifra-flash{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:1.02rem;font-weight:500;color:var(--azul);
+  font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.01em;
+}
+.veredicto{
+  max-width:66ch;margin:0 0 22px;
+  font-size:1rem;line-height:1.6;color:var(--cuerpo);
+}
+.veredicto strong{color:var(--tinta);font-weight:700;}
+.datos-flash{
+  display:flex;flex-wrap:wrap;gap:10px 34px;margin:0;padding:0;
+  max-width:66ch;
+}
+.datos-flash div{display:flex;flex-direction:column;gap:3px;}
+.datos-flash dt{
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.66rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--tenue);
+}
+.datos-flash dd{
+  margin:0;font-family:"DM Mono",ui-monospace,monospace;
+  font-size:.94rem;color:var(--tinta);font-variant-numeric:tabular-nums;
+}
+@media (max-width:640px){
+  .cifra-flash{font-size:.9rem;}
+  .datos-flash{gap:10px 22px;}
+}
+
 /* ─── colofón ───────────────────────────────────────────── */
 .colofon{
   margin-top:76px;border-top:1px solid var(--regla);
@@ -413,29 +517,124 @@ h1{
         <dl class="cifras">
           <div class="cifra">
             <dt>Informes</dt>
-            <dd>11</dd>
+            <dd id="portada-informes">11</dd>
+          </div>
+          <div class="cifra">
+            <dt>Flash</dt>
+            <dd id="portada-flash">2</dd>
           </div>
           <div class="cifra">
             <dt>Período</dt>
-            <dd>abr <small>–</small> ago <small>2026</small></dd>
+            <dd id="portada-periodo">abr <small>–</small> sept <small>2026</small></dd>
           </div>
         </dl>
       </div>
     </div>
   </section>
 
-  <div class="env">
+  <section class="tira-equipo surge" aria-labelledby="equipo-rotulo">
+    <div class="env">
+      <p class="rotulo" id="equipo-rotulo">Equipo</p>
+      <ul class="equipo">
+        <li><a href="https://www.linkedin.com/in/ram%C3%B3n-mazuela-barr%C3%ADa-8b4698320/" target="_blank" rel="noopener" aria-label="Ramón Mazuela Barría en LinkedIn">Ramón Mazuela</a><span>Head of Research</span></li>
+        <li><a href="https://www.linkedin.com/in/crist%C3%B3bal-l%C3%B3pez-n%C3%BA%C3%B1ez-30192b349/" target="_blank" rel="noopener" aria-label="Cristóbal Lopez Nuñez en LinkedIn">Cristóbal Lopez</a><span>Macroeconomics Lead Researcher</span></li>
+        <li><a href="https://www.linkedin.com/in/nigonzalez/" target="_blank" rel="noopener" aria-label="Nicolás González en LinkedIn">Nicolás González</a><span>Finance Lead Researcher</span></li>
+        <li><a href="https://www.linkedin.com/in/catalina-solange-cortez-boggen-81739b15b/" target="_blank" rel="noopener" aria-label="Catalina Cortez en LinkedIn">Catalina Cortez</a><span>Research Analyst</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="puertas surge" aria-label="Secciones del archivo">
+    <div class="env">
+
+      <button class="puerta" type="button" id="puerta-informes"
+              data-panel="panel-informes" aria-expanded="false" aria-controls="panel-informes">
+        <span class="puerta-n"><span id="n-informes">11</span> publicados</span>
+        <span class="puerta-tit">Informes</span>
+        <span class="puerta-baja">Análisis de fondo sobre coyuntura macroeconómica y de mercados. Entre 3 y 7 páginas, con los puntos clave del documento y el PDF completo.</span>
+        <span class="puerta-pie">Ver informes <i class="flecha" aria-hidden="true"></i></span>
+      </button>
+
+      <button class="puerta" type="button" id="puerta-flash"
+              data-panel="panel-flash" aria-expanded="false" aria-controls="panel-flash">
+        <span class="puerta-n"><span id="n-flash">2</span> publicados</span>
+        <span class="puerta-tit">Flash</span>
+        <span class="puerta-baja">Lectura inmediata del dato del día: IPC, Imacec, TPM y empleo. Una página, con la cifra protagonista, el veredicto y los datos de apoyo.</span>
+        <span class="puerta-pie">Ver flash <i class="flecha" aria-hidden="true"></i></span>
+      </button>
+
+    </div>
+  </section>
+
+  <div class="panel" id="panel-flash" hidden>
+    <div class="env">
+      <div class="barra">
+        <p class="rotulo">Informes flash</p>
+        <p class="conteo"><span id="conteo-flash">2</span> flash</p>
+      </div>
+
+      <div class="temas filtros-flash" id="temas-flash">
+        <button class="tema" type="button" data-tema="*" aria-pressed="true">Todos</button>
+        <button class="tema" type="button" data-tema="ipc" aria-pressed="false">IPC</button>
+        <button class="tema" type="button" data-tema="tpm" aria-pressed="false">TPM</button>
+        <button class="tema" type="button" data-tema="imacec" aria-pressed="false">IMACEC</button>
+        <button class="tema" type="button" data-tema="empleo" aria-pressed="false">Empleo</button>
+      </div>
+
+      <div class="flash-lista" id="lista-flash">
+
+        <details class="informe flash" data-temas="tpm">
+          <summary>
+            <span class="fecha">8 sept 2026</span>
+            <span class="rubro">Banco Central mantiene la TPM en 4,5 %</span>
+            <span class="pliegos"><span class="cifra-flash">4,5 %</span> <i class="cruz" aria-hidden="true"></i></span>
+          </summary>
+          <div class="detalle">
+            <p class="veredicto"><strong>Mantención.</strong> Decisión unánime, en línea con lo que anticipaba el mercado. El IPC anual subió a 4,1 % en agosto empujado por elementos volátiles, mientras la subyacente se mantuvo en 3,3 %: el Consejo no tiene por qué reaccionar a un registro que atribuye a precios transitorios. La próxima reunión es el 26 y 27 de octubre.</p>
+            <dl class="datos-flash">
+              <div><dt>TPM anterior</dt><dd>4,5 %</dd></div>
+              <div><dt>Consenso de mercado</dt><dd>4,5 %</dd></div>
+              <div><dt>Votación</dt><dd>Unánime</dd></div>
+              <div><dt>IPC a 12 meses</dt><dd>4,1 %</dd></div>
+            </dl>
+            <div class="pie-informe">
+              <a class="abrir" href="flash/cff%20TPM%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
+              <span class="marbete">Política monetaria · Macro Chile</span>
+            </div>
+          </div>
+        </details>
+
+        <details class="informe flash" data-temas="ipc">
+          <summary>
+            <span class="fecha">8 sept 2026</span>
+            <span class="rubro">IPC de agosto sube 0,6 % y la inflación anual llega a 4,1 %</span>
+            <span class="pliegos"><span class="cifra-flash">0,6 %</span> <i class="cruz" aria-hidden="true"></i></span>
+          </summary>
+          <div class="detalle">
+            <p class="veredicto"><strong>Una sorpresa que no es de fondo.</strong> El mercado esperaba 0,3 % y el dato lo duplicó, llevando la inflación anual a 4,1 %, más de un punto sobre la meta del Banco Central. Pero la sorpresa no viene de la demanda: el IPC sin volátiles subió apenas 0,1 %. Nueve de las trece divisiones de la canasta aportaron incidencias positivas.</p>
+            <dl class="datos-flash">
+              <div><dt>Consenso de mercado</dt><dd>0,3 %</dd></div>
+              <div><dt>Variación en 12 meses</dt><dd>4,1 %</dd></div>
+              <div><dt>Acumulado en el año</dt><dd>3,6 %</dd></div>
+              <div><dt>Sin volátiles (mes)</dt><dd>0,1 %</dd></div>
+            </dl>
+            <div class="pie-informe">
+              <a class="abrir" href="flash/cff%20IPC%20Agosto%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
+              <span class="marbete">Inflación · Macro Chile</span>
+            </div>
+          </div>
+        </details>
+
+      </div>
+
+      <p class="vacio" id="vacio-flash" hidden>No hay flash de este indicador todavía.</p>
+    </div>
+  </div>
+
+  <div class="env panel" id="panel-informes" hidden>
     <div class="pliego">
 
       <aside class="riel">
-        <p class="rotulo">Equipo</p>
-        <ul class="equipo">
-          <li><a href="https://www.linkedin.com/in/ram%C3%B3n-mazuela-barr%C3%ADa-8b4698320/" target="_blank" rel="noopener" aria-label="Ramón Mazuela Barría en LinkedIn">Ramón Mazuela</a><span>Head of Research</span></li>
-          <li><a href="https://www.linkedin.com/in/crist%C3%B3bal-l%C3%B3pez-n%C3%BA%C3%B1ez-30192b349/" target="_blank" rel="noopener" aria-label="Cristóbal Lopez Nuñez en LinkedIn">Cristóbal Lopez</a><span>Macroeconomics Lead Researcher</span></li>
-          <li><a href="https://www.linkedin.com/in/nigonzalez/" target="_blank" rel="noopener" aria-label="Nicolás González en LinkedIn">Nicolás González</a><span>Finance Lead Researcher</span></li>
-          <li><a href="https://www.linkedin.com/in/catalina-solange-cortez-boggen-81739b15b/" target="_blank" rel="noopener" aria-label="Catalina Cortez en LinkedIn">Catalina Cortez</a><span>Research Analyst</span></li>
-        </ul>
-
         <p class="rotulo">Temas</p>
         <div class="temas" id="temas">
           <button class="tema" type="button" data-tema="*" aria-pressed="true">Todos</button>
@@ -749,14 +948,111 @@ h1{
 <script>
 (function () {
   "use strict";
-  var informes = Array.prototype.slice.call(document.querySelectorAll(".informe"));
-  var chips    = Array.prototype.slice.call(document.querySelectorAll(".tema"));
+  /* Las listas se leen del propio documento: para publicar basta con agregar
+     la ficha <details> al HTML. Los contadores de la portada, de las puertas
+     y de las barras se recalculan solos; no hay números escritos a mano. */
+  var todos    = Array.prototype.slice.call(document.querySelectorAll(".informe"));
+  var flashes  = todos.filter(function (a) { return a.classList.contains("flash"); });
+  var informes = todos.filter(function (a) { return !a.classList.contains("flash"); });
+
+  var chips    = Array.prototype.slice.call(document.querySelectorAll("#temas .tema"));
+  var chipsFla = Array.prototype.slice.call(document.querySelectorAll("#temas-flash .tema"));
   var conteo   = document.getElementById("conteo-n");
+  var conteoFl = document.getElementById("conteo-flash");
   var vacio    = document.getElementById("vacio");
+  var vacioFla = document.getElementById("vacio-flash");
   var folio    = document.getElementById("folio-n");
   var quieto   = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ── filtro por tema ───────────────────────────────────── */
+  function fijar(id, texto) {
+    var el = document.getElementById(id);
+    if (el) { el.textContent = texto; }
+  }
+
+  /* ── cifras: portada, puertas y barras ─────────────────── */
+  var MESES = ["ene","feb","mar","abr","may","jun",
+               "jul","ago","sept","oct","nov","dic"];
+
+  function periodo() {
+    /* Lee los <span class="fecha"> y arma el rango "abr – sept 2026". */
+    var primera = null, ultima = null;
+    todos.forEach(function (art) {
+      var t = art.querySelector(".fecha");
+      if (!t) { return; }
+      var p = t.textContent.trim().split(/\s+/);          /* ["8","sept","2026"] */
+      if (p.length < 3) { return; }
+      var m = MESES.indexOf(p[1].replace(".", "").toLowerCase());
+      var a = parseInt(p[2], 10);
+      if (m === -1 || isNaN(a)) { return; }
+      var clave = a * 12 + m;
+      if (primera === null || clave < primera.clave) { primera = {clave:clave, m:m, a:a}; }
+      if (ultima  === null || clave > ultima.clave)  { ultima  = {clave:clave, m:m, a:a}; }
+    });
+    if (!primera || !ultima) { return null; }
+    var cabeza = primera.a === ultima.a
+      ? MESES[primera.m]
+      : MESES[primera.m] + " <small>" + primera.a + "</small>";
+    return cabeza + " <small>–</small> " + MESES[ultima.m] +
+           " <small>" + ultima.a + "</small>";
+  }
+
+  fijar("portada-informes", String(informes.length));
+  fijar("portada-flash",    String(flashes.length));
+  fijar("n-informes",       String(informes.length));
+  fijar("n-flash",          String(flashes.length));
+  fijar("conteo-flash",     String(flashes.length));
+
+  var rango = periodo();
+  var elPeriodo = document.getElementById("portada-periodo");
+  if (rango && elPeriodo) { elPeriodo.innerHTML = rango; }
+
+  /* ── las dos puertas: Informes y Flash ─────────────────── */
+  var puertas = Array.prototype.slice.call(document.querySelectorAll(".puerta"));
+
+  function revelar(panel) {
+    /* Los paneles nacen ocultos, así que su animación de entrada se
+       dispara a mano al abrirlos. */
+    Array.prototype.forEach.call(panel.querySelectorAll(".surge"), function (el) {
+      el.classList.add("dentro");
+    });
+  }
+
+  function abrir(id, mover) {
+    puertas.forEach(function (b) {
+      var destino = b.getAttribute("data-panel");
+      var panel   = document.getElementById(destino);
+      var activa  = destino === id;
+      b.setAttribute("aria-expanded", String(activa));
+      if (panel) {
+        panel.hidden = !activa;
+        if (activa) { revelar(panel); }
+      }
+    });
+    if (id && mover) {
+      var abierta = document.getElementById(id === "panel-informes"
+        ? "puerta-informes" : "puerta-flash");
+      if (abierta) {
+        abierta.scrollIntoView({ behavior: quieto ? "auto" : "smooth", block: "start" });
+      }
+    }
+    if (id && history.replaceState) {
+      history.replaceState(null, "", "#" + (id === "panel-informes" ? "informes" : "flash"));
+    }
+  }
+
+  puertas.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var yaAbierta = b.getAttribute("aria-expanded") === "true";
+      abrir(yaAbierta ? null : b.getAttribute("data-panel"), !yaAbierta);
+    });
+  });
+
+  /* Permite llegar directo con club-de-finanzas-fen.github.io/#flash */
+  var ancla = (window.location.hash || "").replace("#", "");
+  if (ancla === "flash")    { abrir("panel-flash", false); }
+  if (ancla === "informes") { abrir("panel-informes", false); }
+
+  /* ── filtro por tema (solo el archivo de informes) ──────── */
   function filtrar(tema) {
     var vivos = 0;
     informes.forEach(function (art) {
@@ -770,6 +1066,31 @@ h1{
     vacio.hidden = vivos !== 0;
   }
 
+  filtrar("*");
+
+  /* ── filtro por indicador (solo los flash) ─────────────── */
+  function filtrarFlash(tema) {
+    var vivos = 0;
+    flashes.forEach(function (art) {
+      var temas = (art.getAttribute("data-temas") || "").split(" ");
+      var pasa  = tema === "*" || temas.indexOf(tema) !== -1;
+      art.hidden = !pasa;
+      if (!pasa) { art.open = false; }
+      if (pasa) { vivos++; }
+    });
+    if (conteoFl) { conteoFl.textContent = vivos; }
+    if (vacioFla) { vacioFla.hidden = vivos !== 0; }
+  }
+
+  chipsFla.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      chipsFla.forEach(function (o) { o.setAttribute("aria-pressed", String(o === chip)); });
+      filtrarFlash(chip.getAttribute("data-tema"));
+    });
+  });
+
+  filtrarFlash("*");
+
   chips.forEach(function (chip) {
     chip.addEventListener("click", function () {
       chips.forEach(function (o) { o.setAttribute("aria-pressed", String(o === chip)); });
@@ -778,10 +1099,10 @@ h1{
   });
 
   /* ── un solo informe abierto a la vez ──────────────────── */
-  informes.forEach(function (art) {
+  todos.forEach(function (art) {
     art.addEventListener("toggle", function () {
       if (!art.open) { return; }
-      informes.forEach(function (otro) { if (otro !== art) { otro.open = false; } });
+      todos.forEach(function (otro) { if (otro !== art) { otro.open = false; } });
     });
   });
 
@@ -791,8 +1112,12 @@ h1{
     tictac = false;
     var corte = window.innerHeight * 0.42;
     var n = 1;
-    for (var i = 0; i < informes.length; i++) {
-      if (!informes[i].hidden && informes[i].getBoundingClientRect().top < corte) { n = i + 2; }
+    var vistos = 0;
+    for (var i = 0; i < todos.length; i++) {
+      /* offsetParent es null si la ficha está dentro de un panel cerrado. */
+      if (todos[i].hidden || todos[i].offsetParent === null) { continue; }
+      vistos++;
+      if (todos[i].getBoundingClientRect().top < corte) { n = vistos + 1; }
     }
     folio.textContent = n;
   }
