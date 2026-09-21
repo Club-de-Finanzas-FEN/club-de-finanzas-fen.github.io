@@ -559,7 +559,7 @@ h1{
               data-panel="panel-flash" aria-expanded="false" aria-controls="panel-flash">
         <span class="puerta-n"><span id="n-flash">2</span> publicados</span>
         <span class="puerta-tit">Flash</span>
-        <span class="puerta-baja">Lectura inmediata del dato del día: IPC, Imacec, TPM y empleo. Una página, con la cifra protagonista, el veredicto y los datos de apoyo.</span>
+        <span class="puerta-baja">Lectura inmediata del dato del día: IPC, Imacec, TPM, empleo y las decisiones de la Fed. Una página, con la cifra protagonista, el veredicto y los datos de apoyo.</span>
         <span class="puerta-pie">Ver flash <i class="flecha" aria-hidden="true"></i></span>
       </button>
 
@@ -579,9 +579,31 @@ h1{
         <button class="tema" type="button" data-tema="tpm" aria-pressed="false">TPM</button>
         <button class="tema" type="button" data-tema="imacec" aria-pressed="false">IMACEC</button>
         <button class="tema" type="button" data-tema="empleo" aria-pressed="false">Empleo</button>
+        <button class="tema" type="button" data-tema="fed" aria-pressed="false">Fed</button>
       </div>
 
       <div class="flash-lista" id="lista-flash">
+
+        <details class="informe flash" data-temas="fed">
+          <summary>
+            <span class="fecha">16 sept 2026</span>
+            <span class="rubro">La Fed sube la tasa a 3,75 %–4,00 %: primera alza en tres años</span>
+            <span class="pliegos"><span class="cifra-flash">3,75–4,00 %</span> <i class="cruz" aria-hidden="true"></i></span>
+          </summary>
+          <div class="detalle">
+            <p class="veredicto"><strong>Alza de 25 pb.</strong> Decisión unánime (12–0), en línea con lo que anticipaba el mercado: la primera alza desde julio de 2023, tras una pausa que se extendía desde diciembre de 2025. La inflación se aceleró a 3,4 % anual por la gasolina, con la subyacente sorprendiendo al alza en 0,3 % mensual por vivienda y servicios, sobre un mercado laboral sólido que dio margen para subir. Para Chile la cuenta llega por el tipo de cambio: el diferencial de tasas a favor del peso se estrecha a unos 60 puntos base.</p>
+            <dl class="datos-flash">
+              <div><dt>Rango anterior</dt><dd>3,50–3,75 %</dd></div>
+              <div><dt>Consenso de mercado</dt><dd>+25 pb</dd></div>
+              <div><dt>Votación</dt><dd>12–0</dd></div>
+              <div><dt>IPC EE.UU. (12 meses)</dt><dd>3,4 %</dd></div>
+            </dl>
+            <div class="pie-informe">
+              <a class="abrir" href="flash/cff%20FOMC%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
+              <span class="marbete">Política monetaria EE.UU. · Macro global</span>
+            </div>
+          </div>
+        </details>
 
         <details class="informe flash" data-temas="tpm">
           <summary>
