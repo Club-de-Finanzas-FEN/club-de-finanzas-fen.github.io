@@ -400,11 +400,9 @@ h1{
 /* ─── paneles desplegables ──────────────────────────────── */
 .panel{padding-top:14px;}
 .panel[hidden]{display:none;}
-#panel-flash{padding-bottom:52px;}
 
 /* ─── informes flash ────────────────────────────────────── */
-.filtros-flash{margin:22px 0 4px;}
-.flash-lista{border-top:1px solid var(--regla);border-bottom:1px solid var(--tinta);}
+.flash-lista{border-bottom:1px solid var(--tinta);}
 .cifra-flash{
   font-family:"DM Mono",ui-monospace,monospace;
   font-size:1.02rem;font-weight:500;color:var(--azul);
@@ -571,90 +569,97 @@ h1{
     </div>
   </section>
 
-  <div class="panel" id="panel-flash" hidden>
-    <div class="env">
-      <div class="barra">
-        <p class="rotulo">Informes flash</p>
-        <p class="conteo"><span id="conteo-flash">2</span> flash</p>
+  <div class="env panel" id="panel-flash" hidden>
+    <div class="pliego">
+
+      <aside class="riel">
+        <p class="rotulo">Indicadores</p>
+        <div class="temas" id="temas-flash">
+          <button class="tema" type="button" data-tema="*" aria-pressed="true">Todos</button>
+          <button class="tema" type="button" data-tema="ipc" aria-pressed="false">IPC</button>
+          <button class="tema" type="button" data-tema="tpm" aria-pressed="false">TPM</button>
+          <button class="tema" type="button" data-tema="imacec" aria-pressed="false">IMACEC</button>
+          <button class="tema" type="button" data-tema="empleo" aria-pressed="false">Empleo</button>
+          <button class="tema" type="button" data-tema="fed" aria-pressed="false">Fed</button>
+        </div>
+      </aside>
+
+      <div class="columna">
+        <div class="barra">
+          <p class="rotulo">Informes flash</p>
+          <p class="conteo"><span id="conteo-flash">2</span> flash</p>
+        </div>
+
+        <div class="flash-lista" id="lista-flash">
+
+          <details class="informe flash" data-temas="fed">
+            <summary>
+              <span class="fecha">16 sept 2026</span>
+              <span class="rubro">La Fed sube la tasa a 3,75 %–4,00 %: primera alza en tres años</span>
+              <span class="pliegos"><span class="cifra-flash">3,75–4,00 %</span> <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <p class="veredicto"><strong>Alza de 25 pb.</strong> Decisión unánime (12–0), en línea con lo que anticipaba el mercado: la primera alza desde julio de 2023, tras una pausa que se extendía desde diciembre de 2025. La inflación se aceleró a 3,4 % anual por la gasolina, con la subyacente sorprendiendo al alza en 0,3 % mensual por vivienda y servicios, sobre un mercado laboral sólido que dio margen para subir. Para Chile la cuenta llega por el tipo de cambio: el diferencial de tasas a favor del peso se estrecha a unos 60 puntos base.</p>
+              <dl class="datos-flash">
+                <div><dt>Rango anterior</dt><dd>3,50–3,75 %</dd></div>
+                <div><dt>Consenso de mercado</dt><dd>+25 pb</dd></div>
+                <div><dt>Votación</dt><dd>12–0</dd></div>
+                <div><dt>IPC EE.UU. (12 meses)</dt><dd>3,4 %</dd></div>
+              </dl>
+              <div class="pie-informe">
+                <a class="abrir" href="flash/cff%20FOMC%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
+                <span class="marbete">Política monetaria EE.UU. · Macro global</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe flash" data-temas="tpm">
+            <summary>
+              <span class="fecha">8 sept 2026</span>
+              <span class="rubro">Banco Central mantiene la TPM en 4,5 %</span>
+              <span class="pliegos"><span class="cifra-flash">4,5 %</span> <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <p class="veredicto"><strong>Mantención.</strong> Decisión unánime, en línea con lo que anticipaba el mercado. El IPC anual subió a 4,1 % en agosto empujado por elementos volátiles, mientras la subyacente se mantuvo en 3,3 %: el Consejo no tiene por qué reaccionar a un registro que atribuye a precios transitorios. La próxima reunión es el 26 y 27 de octubre.</p>
+              <dl class="datos-flash">
+                <div><dt>TPM anterior</dt><dd>4,5 %</dd></div>
+                <div><dt>Consenso de mercado</dt><dd>4,5 %</dd></div>
+                <div><dt>Votación</dt><dd>Unánime</dd></div>
+                <div><dt>IPC a 12 meses</dt><dd>4,1 %</dd></div>
+              </dl>
+              <div class="pie-informe">
+                <a class="abrir" href="flash/cff%20TPM%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
+                <span class="marbete">Política monetaria · Macro Chile</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="informe flash" data-temas="ipc">
+            <summary>
+              <span class="fecha">8 sept 2026</span>
+              <span class="rubro">IPC de agosto sube 0,6 % y la inflación anual llega a 4,1 %</span>
+              <span class="pliegos"><span class="cifra-flash">0,6 %</span> <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <p class="veredicto"><strong>Una sorpresa que no es de fondo.</strong> El mercado esperaba 0,3 % y el dato lo duplicó, llevando la inflación anual a 4,1 %, más de un punto sobre la meta del Banco Central. Pero la sorpresa no viene de la demanda: el IPC sin volátiles subió apenas 0,1 %. Nueve de las trece divisiones de la canasta aportaron incidencias positivas.</p>
+              <dl class="datos-flash">
+                <div><dt>Consenso de mercado</dt><dd>0,3 %</dd></div>
+                <div><dt>Variación en 12 meses</dt><dd>4,1 %</dd></div>
+                <div><dt>Acumulado en el año</dt><dd>3,6 %</dd></div>
+                <div><dt>Sin volátiles (mes)</dt><dd>0,1 %</dd></div>
+              </dl>
+              <div class="pie-informe">
+                <a class="abrir" href="flash/cff%20IPC%20Agosto%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
+                <span class="marbete">Inflación · Macro Chile</span>
+              </div>
+            </div>
+          </details>
+
+          </div>
+
+        <p class="vacio" id="vacio-flash" hidden>No hay flash de este indicador todavía.</p>
       </div>
 
-      <div class="temas filtros-flash" id="temas-flash">
-        <button class="tema" type="button" data-tema="*" aria-pressed="true">Todos</button>
-        <button class="tema" type="button" data-tema="ipc" aria-pressed="false">IPC</button>
-        <button class="tema" type="button" data-tema="tpm" aria-pressed="false">TPM</button>
-        <button class="tema" type="button" data-tema="imacec" aria-pressed="false">IMACEC</button>
-        <button class="tema" type="button" data-tema="empleo" aria-pressed="false">Empleo</button>
-        <button class="tema" type="button" data-tema="fed" aria-pressed="false">Fed</button>
-      </div>
-
-      <div class="flash-lista" id="lista-flash">
-
-        <details class="informe flash" data-temas="fed">
-          <summary>
-            <span class="fecha">16 sept 2026</span>
-            <span class="rubro">La Fed sube la tasa a 3,75 %–4,00 %: primera alza en tres años</span>
-            <span class="pliegos"><span class="cifra-flash">3,75–4,00 %</span> <i class="cruz" aria-hidden="true"></i></span>
-          </summary>
-          <div class="detalle">
-            <p class="veredicto"><strong>Alza de 25 pb.</strong> Decisión unánime (12–0), en línea con lo que anticipaba el mercado: la primera alza desde julio de 2023, tras una pausa que se extendía desde diciembre de 2025. La inflación se aceleró a 3,4 % anual por la gasolina, con la subyacente sorprendiendo al alza en 0,3 % mensual por vivienda y servicios, sobre un mercado laboral sólido que dio margen para subir. Para Chile la cuenta llega por el tipo de cambio: el diferencial de tasas a favor del peso se estrecha a unos 60 puntos base.</p>
-            <dl class="datos-flash">
-              <div><dt>Rango anterior</dt><dd>3,50–3,75 %</dd></div>
-              <div><dt>Consenso de mercado</dt><dd>+25 pb</dd></div>
-              <div><dt>Votación</dt><dd>12–0</dd></div>
-              <div><dt>IPC EE.UU. (12 meses)</dt><dd>3,4 %</dd></div>
-            </dl>
-            <div class="pie-informe">
-              <a class="abrir" href="flash/cff%20FOMC%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-              <span class="marbete">Política monetaria EE.UU. · Macro global</span>
-            </div>
-          </div>
-        </details>
-
-        <details class="informe flash" data-temas="tpm">
-          <summary>
-            <span class="fecha">8 sept 2026</span>
-            <span class="rubro">Banco Central mantiene la TPM en 4,5 %</span>
-            <span class="pliegos"><span class="cifra-flash">4,5 %</span> <i class="cruz" aria-hidden="true"></i></span>
-          </summary>
-          <div class="detalle">
-            <p class="veredicto"><strong>Mantención.</strong> Decisión unánime, en línea con lo que anticipaba el mercado. El IPC anual subió a 4,1 % en agosto empujado por elementos volátiles, mientras la subyacente se mantuvo en 3,3 %: el Consejo no tiene por qué reaccionar a un registro que atribuye a precios transitorios. La próxima reunión es el 26 y 27 de octubre.</p>
-            <dl class="datos-flash">
-              <div><dt>TPM anterior</dt><dd>4,5 %</dd></div>
-              <div><dt>Consenso de mercado</dt><dd>4,5 %</dd></div>
-              <div><dt>Votación</dt><dd>Unánime</dd></div>
-              <div><dt>IPC a 12 meses</dt><dd>4,1 %</dd></div>
-            </dl>
-            <div class="pie-informe">
-              <a class="abrir" href="flash/cff%20TPM%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-              <span class="marbete">Política monetaria · Macro Chile</span>
-            </div>
-          </div>
-        </details>
-
-        <details class="informe flash" data-temas="ipc">
-          <summary>
-            <span class="fecha">8 sept 2026</span>
-            <span class="rubro">IPC de agosto sube 0,6 % y la inflación anual llega a 4,1 %</span>
-            <span class="pliegos"><span class="cifra-flash">0,6 %</span> <i class="cruz" aria-hidden="true"></i></span>
-          </summary>
-          <div class="detalle">
-            <p class="veredicto"><strong>Una sorpresa que no es de fondo.</strong> El mercado esperaba 0,3 % y el dato lo duplicó, llevando la inflación anual a 4,1 %, más de un punto sobre la meta del Banco Central. Pero la sorpresa no viene de la demanda: el IPC sin volátiles subió apenas 0,1 %. Nueve de las trece divisiones de la canasta aportaron incidencias positivas.</p>
-            <dl class="datos-flash">
-              <div><dt>Consenso de mercado</dt><dd>0,3 %</dd></div>
-              <div><dt>Variación en 12 meses</dt><dd>4,1 %</dd></div>
-              <div><dt>Acumulado en el año</dt><dd>3,6 %</dd></div>
-              <div><dt>Sin volátiles (mes)</dt><dd>0,1 %</dd></div>
-            </dl>
-            <div class="pie-informe">
-              <a class="abrir" href="flash/cff%20IPC%20Agosto%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-              <span class="marbete">Inflación · Macro Chile</span>
-            </div>
-          </div>
-        </details>
-
-      </div>
-
-      <p class="vacio" id="vacio-flash" hidden>No hay flash de este indicador todavía.</p>
     </div>
   </div>
 
@@ -682,6 +687,26 @@ h1{
         </div>
 
         <div id="archivo">
+
+          <details class="informe surge" data-temas="commodities macro-cl">
+            <summary>
+              <span class="fecha">30 sept 2026</span>
+              <span class="rubro">Cobre caro, producción débil: ¿por qué el aumento del precio del cobre no se traduce en crecimiento minero en Chile?</span>
+              <span class="pliegos">7 pp. <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <ol class="claves">
+                <li><p>Durante 2026 el precio internacional del cobre se ha mantenido en niveles históricamente elevados, aumentando los ingresos y la rentabilidad de las empresas mineras. Sin embargo, la producción chilena ha seguido débil: durante el primer semestre de 2026 Codelco produjo cerca de 11 % menos que en igual período de 2025, aun cuando su EBITDA aumentó fuertemente.</p></li>
+                <li><p>Un precio elevado genera incentivos para producir e invertir, pero no elimina las restricciones físicas y operacionales de la industria. Menores leyes del mineral, envejecimiento de los yacimientos, mantenciones, accidentes, mayores costos de energía y combustibles y problemas de continuidad operacional están limitando la capacidad de Chile para responder al boom de precios.</p></li>
+                <li><p>La minería requiere proyectos de gran escala, con elevados costos hundidos y largos períodos entre la decisión de inversión y el inicio de la producción. Por ello, un aumento del precio puede reflejarse primero en mayores utilidades y flujo de caja, mientras que la expansión de capacidad ocurre con varios años de rezago.</p></li>
+                <li><p>Un cobre más caro mejora los términos de intercambio, los ingresos de las empresas mineras y los recursos fiscales, pero el PIB real depende fundamentalmente de la producción y el valor agregado. Así, Chile puede experimentar un auge de rentabilidad sin un auge equivalente de producción.</p></li>
+              </ol>
+              <div class="pie-informe">
+                <a class="abrir" href="informes/2026-09-30_cobre_produccion.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
+                <span class="marbete">Commodities · Macro Chile</span>
+              </div>
+            </div>
+          </details>
 
           <details class="informe surge" data-temas="mercados corp">
             <summary>
