@@ -330,6 +330,74 @@ h1{
 .vacio[hidden]{display:none;}
 
 /* ─── equipo: visible siempre, sin importar el apartado ─── */
+/* ─── portada de diario: lo último publicado ────────────── */
+.tapa{padding:16px 0 40px;}
+.tapa[hidden]{display:none;}
+.tapa .env{
+  display:grid;grid-template-columns:1.55fr 1fr;gap:0 46px;
+}
+@media (max-width:900px){
+  .tapa .env{grid-template-columns:1fr;gap:0;}
+}
+
+.nota{
+  padding:26px 46px 6px 0;
+  border-right:1px solid var(--regla);border-top:1px solid var(--tinta);
+}
+.secundarias{border-top:1px solid var(--tinta);}
+@media (max-width:900px){
+  .nota{border-right:0;padding:26px 0 30px;border-bottom:1px solid var(--regla);}
+  .secundarias{border-top:0;}
+}
+.tapa .rotulo{margin:0 0 20px;}
+.nota-fecha{
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.735rem;
+  color:var(--tenue);font-variant-numeric:tabular-nums;
+  display:block;margin-bottom:12px;
+}
+.nota-tit{
+  display:block;margin:0 0 18px;
+  font-size:clamp(1.5rem,2.9vw,2.15rem);font-weight:700;line-height:1.16;
+  letter-spacing:-.024em;color:var(--azul);text-wrap:balance;
+  text-decoration:none;border-bottom:2px solid transparent;
+  transition:border-color .18s;
+}
+a.nota-tit:hover{border-bottom-color:var(--azul);}
+.nota-bajada{
+  margin:0 0 24px;font-size:.98rem;line-height:1.66;color:var(--cuerpo);
+  max-width:54ch;
+}
+.nota-pie{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
+
+.secundarias{padding:26px 0 6px;display:flex;flex-direction:column;}
+.mini{
+  padding:0 0 18px;margin-bottom:18px;border-bottom:1px solid var(--regla);
+}
+.mini:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0;}
+.mini-alto{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  margin-bottom:8px;
+}
+.mini-fecha{
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.7rem;
+  color:var(--tenue);font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.mini-tit{
+  display:block;font-size:.975rem;font-weight:700;line-height:1.38;
+  letter-spacing:-.01em;color:var(--tinta);text-decoration:none;
+  transition:color .18s;
+}
+.mini-tit:hover{color:var(--azul);}
+.mas{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:"DM Mono",ui-monospace,monospace;font-size:.7rem;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--tenue);
+  background:none;border:0;padding:0;cursor:pointer;
+  transition:color .18s;
+}
+.mas:hover{color:var(--azul);}
+.secundarias .mas{margin-top:20px;align-self:flex-start;}
+
 .tira-equipo{padding:12px 0 34px;}
 .tira-equipo .rotulo{
   padding-bottom:14px;margin:0 0 22px;border-bottom:1px solid var(--regla);
@@ -532,6 +600,31 @@ h1{
     </div>
   </section>
 
+  <!-- La tapa se llena sola desde las fichas del archivo: nunca hay que
+       actualizarla a mano al publicar. Si el JS no corre, queda oculta. -->
+  <section class="tapa surge" id="tapa" aria-labelledby="tapa-rotulo" hidden>
+    <div class="env">
+
+      <article class="nota">
+        <p class="rotulo" id="tapa-rotulo">Último informe</p>
+        <span class="nota-fecha" id="nota-fecha"></span>
+        <a class="nota-tit" id="nota-tit" href="#" target="_blank" rel="noopener"></a>
+        <p class="nota-bajada" id="nota-bajada"></p>
+        <div class="nota-pie">
+          <a class="abrir" id="nota-abrir" href="#" target="_blank" rel="noopener">Abrir informe ↗</a>
+          <button class="mas" type="button" id="ir-informes">Ver el archivo <i class="flecha" aria-hidden="true"></i></button>
+        </div>
+      </article>
+
+      <aside class="secundarias" aria-labelledby="mini-rotulo">
+        <p class="rotulo" id="mini-rotulo">Últimos flash</p>
+        <div id="lista-mini"></div>
+        <button class="mas" type="button" id="ir-flash">Ver todos los flash <i class="flecha" aria-hidden="true"></i></button>
+      </aside>
+
+    </div>
+  </section>
+
   <section class="tira-equipo surge" aria-labelledby="equipo-rotulo">
     <div class="env">
       <p class="rotulo" id="equipo-rotulo">Equipo</p>
@@ -591,6 +684,27 @@ h1{
         </div>
 
         <div class="flash-lista" id="lista-flash">
+
+          <details class="informe flash" data-temas="empleo">
+            <summary>
+              <span class="fecha">30 sept 2026</span>
+              <span class="rubro">Desempleo anota nuevo máximo en 5 años</span>
+              <span class="pliegos"><span class="cifra-flash">9,6 %</span> <i class="cruz" aria-hidden="true"></i></span>
+            </summary>
+            <div class="detalle">
+              <p class="veredicto"><strong>Tasa de desocupación en 9,6 %.</strong> Subió 1,0 punto porcentual en doce meses en el trimestre móvil junio-agosto, el registro más alto en más de cinco años; desestacionalizada queda en 9,4 %. La fuerza de trabajo creció 0,3 % mientras los ocupados cayeron 0,9 %: hay más desocupados (+13,0 %) y, a la vez, más personas que dejaron de buscar, con la participación bajando a 61,5 %. Los asalariados formales cayeron 2,9 % mientras crecen cuenta propia (3,1 %) y servicio doméstico (10,0 %), dos categorías de alta informalidad.</p>
+              <dl class="datos-flash">
+                <div><dt>Var. en 12 meses</dt><dd>+1,0 pp</dd></div>
+                <div><dt>Ocupados (12 m)</dt><dd>-0,9 %</dd></div>
+                <div><dt>Participación</dt><dd>61,5 %</dd></div>
+                <div><dt>Informalidad</dt><dd>26,3 %</dd></div>
+              </dl>
+              <div class="pie-informe">
+                <a class="abrir" href="flash/2026-09-30_empleo_junio_agosto.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
+                <span class="marbete">Mercado laboral · Macro Chile</span>
+              </div>
+            </div>
+          </details>
 
           <details class="informe flash" data-temas="fed">
             <summary>
@@ -1098,6 +1212,88 @@ h1{
   var elPeriodo = document.getElementById("portada-periodo");
   if (rango && elPeriodo) { elPeriodo.innerHTML = rango; }
 
+  /* ── tapa: se arma leyendo las fichas del propio archivo ─ */
+  function texto(ficha, sel) {
+    var el = ficha.querySelector(sel);
+    return el ? el.textContent.trim() : "";
+  }
+
+  function recortar(t, max) {
+    if (t.length <= max) { return t; }
+    var corte = t.slice(0, max);
+    var esp = corte.lastIndexOf(" ");
+    return (esp > max * 0.6 ? corte.slice(0, esp) : corte).replace(/[,;:.\s]+$/, "") + "…";
+  }
+
+  function armarTapa() {
+    var tapa = document.getElementById("tapa");
+    if (!tapa || !informes.length) { return; }
+
+    /* Nota principal: el informe largo más reciente. */
+    var top = informes[0];
+    var pdf = top.querySelector("a.abrir");
+    document.getElementById("nota-fecha").textContent = texto(top, ".fecha");
+
+    var tit = document.getElementById("nota-tit");
+    tit.textContent = texto(top, ".rubro");
+
+    var clave = top.querySelector(".claves p");
+    document.getElementById("nota-bajada").textContent =
+      clave ? recortar(clave.textContent.trim(), 230) : "";
+
+    var abrir1 = document.getElementById("nota-abrir");
+    if (pdf) {
+      tit.href = abrir1.href = pdf.getAttribute("href");
+    } else {
+      tit.removeAttribute("href");
+      abrir1.hidden = true;
+    }
+
+    /* Secundarias: los dos flash más recientes. */
+    var caja = document.getElementById("lista-mini");
+    flashes.slice(0, 2).forEach(function (f) {
+      var enlace = f.querySelector("a.abrir");
+      var art = document.createElement("article");
+      art.className = "mini";
+
+      var alto = document.createElement("div");
+      alto.className = "mini-alto";
+
+      var fecha = document.createElement("span");
+      fecha.className = "mini-fecha";
+      fecha.textContent = texto(f, ".fecha");
+
+      var cifra = document.createElement("span");
+      cifra.className = "cifra-flash";
+      cifra.textContent = texto(f, ".cifra-flash");
+
+      alto.appendChild(fecha);
+      alto.appendChild(cifra);
+
+      var a = document.createElement("a");
+      a.className = "mini-tit";
+      a.textContent = texto(f, ".rubro");
+      if (enlace) {
+        a.href = enlace.getAttribute("href");
+        a.target = "_blank";
+        a.rel = "noopener";
+      }
+
+      art.appendChild(alto);
+      art.appendChild(a);
+      caja.appendChild(art);
+    });
+
+    if (!flashes.length) {
+      var sec = caja.parentNode;
+      if (sec) { sec.hidden = true; }
+    }
+
+    tapa.hidden = false;
+  }
+
+  armarTapa();
+
   /* ── las dos puertas: Informes y Flash ─────────────────── */
   var puertas = Array.prototype.slice.call(document.querySelectorAll(".puerta"));
 
@@ -1138,6 +1334,12 @@ h1{
       abrir(yaAbierta ? null : b.getAttribute("data-panel"), !yaAbierta);
     });
   });
+
+  /* Los enlaces de la tapa abren el apartado que corresponde. */
+  var irInf = document.getElementById("ir-informes");
+  var irFla = document.getElementById("ir-flash");
+  if (irInf) { irInf.addEventListener("click", function () { abrir("panel-informes", true); }); }
+  if (irFla) { irFla.addEventListener("click", function () { abrir("panel-flash", true); }); }
 
   /* Permite llegar directo con club-de-finanzas-fen.github.io/#flash */
   var ancla = (window.location.hash || "").replace("#", "");
