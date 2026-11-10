@@ -1,1627 +1,272 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Informes de Research — Club de Finanzas FEN UChile</title>
-<meta name="description" content="Archivo de informes del Área de Research del Club de Finanzas FEN UChile: análisis de coyuntura macroeconómica y de mercados, con puntos clave y PDF completo.">
-<meta name="author" content="Club de Finanzas FEN UChile — Área de Research">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Informes de Research — Club de Finanzas FEN UChile">
-<meta property="og:description" content="Análisis de coyuntura macroeconómica y de mercados del Área de Research del Club de Finanzas FEN UChile.">
-<meta property="og:image" content="https://club-de-finanzas-fen.github.io/assets/favicon.png">
-<meta name="theme-color" content="#2033D8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0D0F16" media="(prefers-color-scheme: dark)">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramón Mazuela Barría</title>
+<meta name="description" content="Ingeniero Comercial, Mención Economía — Universidad de Chile. Finanzas, macroeconomía y mercado de capitales.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ─── tokens ────────────────────────────────────────────── */
 :root{
-  --azul:#2033D8;
-  --azul-tenue:#4A5AE4;
-  --azul-fondo:#EEF0FE;
-  --tinta:#12141C;
-  --cuerpo:#3C4150;
-  --tenue:#767B8A;
-  --papel:#FFFFFF;
-  --pliego:#F4F5FB;
-  --regla:#E1E3EF;
-  --realce:rgba(32,51,216,.09);
-  --buho:url("assets/buho.png");
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --azul:#8B98FF;
-    --azul-tenue:#6E7DF5;
-    --azul-fondo:#1A1E33;
-    --tinta:#EEEFF6;
-    --cuerpo:#B4BACB;
-    --tenue:#828899;
-    --papel:#0D0F16;
-    --pliego:#151824;
-    --regla:#242839;
-    --realce:rgba(139,152,255,.13);
-  }
-}
-:root[data-theme="dark"]{
-  --azul:#8B98FF;
-  --azul-tenue:#6E7DF5;
-  --azul-fondo:#1A1E33;
-  --tinta:#EEEFF6;
-  --cuerpo:#B4BACB;
-  --tenue:#828899;
-  --papel:#0D0F16;
-  --pliego:#151824;
-  --regla:#242839;
-  --realce:rgba(139,152,255,.13);
-}
-
-*,*::before,*::after{box-sizing:border-box;}
-
-body{
-  margin:0;
-  background:var(--papel);
-  color:var(--cuerpo);
-  font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  font-size:16px;
-  line-height:1.72;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-
-a{color:var(--azul);}
-:focus-visible{outline:2px solid var(--azul);outline-offset:3px;border-radius:2px;}
-
-.env{max-width:1180px;margin:0 auto;padding:0 32px;}
-
-/* ─── el búho, como máscara: toma el color del tema ─────── */
-.buho{
-  -webkit-mask-image:var(--buho);mask-image:var(--buho);
-  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-  -webkit-mask-position:center;mask-position:center;
-  -webkit-mask-size:contain;mask-size:contain;
-  background-color:currentColor;
-  display:block;
-}
-
-/* ─── encabezado corrido (el del PDF, vivo) ─────────────── */
-.corrido{
-  position:sticky;top:0;z-index:50;
-  background:color-mix(in srgb,var(--papel) 88%,transparent);
-  backdrop-filter:saturate(1.6) blur(14px);
-  -webkit-backdrop-filter:saturate(1.6) blur(14px);
-  border-bottom:1px solid var(--regla);
-}
-.corrido .env{
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-  height:66px;
-}
-.marca{display:flex;align-items:center;gap:12px;color:var(--tinta);text-decoration:none;min-width:0;}
-.marca .buho{width:30px;height:26px;flex:none;}
-.marca b{
-  display:block;font-size:.735rem;font-weight:700;letter-spacing:.07em;
-  text-transform:uppercase;line-height:1.35;white-space:nowrap;
-}
-.marca span{
-  display:block;font-size:.66rem;font-weight:500;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--tenue);line-height:1.35;
-}
-.folio{
-  font-family:"DM Mono",ui-monospace,monospace;
-  font-size:.75rem;color:var(--tenue);
-  display:flex;align-items:baseline;gap:16px;white-space:nowrap;
-}
-.folio em{font-style:normal;}
-.folio .pag{color:var(--azul);font-weight:500;font-variant-numeric:tabular-nums;}
-@media (max-width:720px){ .folio em{display:none;} }
-
-/* ─── portada ───────────────────────────────────────────── */
-.portada{position:relative;padding:96px 0 34px;overflow:hidden;}
-.zocalo{position:relative;}
-.filigrana{
-  position:absolute;bottom:100%;right:-4%;width:min(520px,58vw);aspect-ratio:512/442;
-  color:var(--azul);opacity:.055;pointer-events:none;
-}
-@media (max-width:720px){
-  .filigrana{right:-8%;width:min(360px,68vw);}
-}
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .filigrana{opacity:.10;} }
-:root[data-theme="dark"] .filigrana{opacity:.10;}
-
-.portada .env{position:relative;}
-.epigrafe{
-  font-family:"DM Mono",ui-monospace,monospace;
-  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--tenue);margin:0 0 26px;
-}
-h1{
-  font-size:clamp(2.5rem,6.4vw,4.5rem);
-  font-weight:700;line-height:1.08;letter-spacing:-.025em;
-  color:var(--azul);margin:0;text-wrap:balance;max-width:15ch;
-}
-.bajada{
-  font-size:clamp(1rem,1.5vw,1.15rem);font-weight:700;color:var(--azul-tenue);
-  margin:22px 0 0;letter-spacing:-.005em;
-}
-.entrada{
-  max-width:62ch;margin:26px 0 0;font-size:1.03rem;color:var(--cuerpo);
-}
-.entrada strong{color:var(--tinta);font-weight:600;}
-
-.cifras{
-  display:flex;flex-wrap:wrap;gap:0;margin:44px 0 0;
-  border-top:1px solid var(--regla);
-}
-.cifra{
-  padding:20px 34px 0 0;margin-right:34px;
-  border-right:1px solid var(--regla);
-}
-.cifra:last-child{border-right:0;margin-right:0;padding-right:0;}
-.cifra dt{
-  font-family:"DM Mono",ui-monospace,monospace;
-  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tenue);
-  margin:0 0 4px;
-}
-.cifra dd{
-  margin:0;font-size:1.6rem;font-weight:700;color:var(--tinta);
-  line-height:1.2;font-variant-numeric:tabular-nums;letter-spacing:-.02em;
-}
-.cifra dd small{font-size:.9rem;font-weight:500;color:var(--tenue);letter-spacing:0;}
-
-/* ─── cuerpo a dos columnas, como la portada del informe ── */
-.pliego{
-  display:grid;grid-template-columns:206px 1fr;gap:0;
-  padding:0 0 40px;align-items:start;
-}
-.riel{
-  position:sticky;top:106px;
-  padding:6px 34px 40px 0;
-  border-right:1px solid var(--regla);
-}
-.columna{padding:6px 0 0 46px;min-width:0;}
-@media (max-width:900px){
-  .pliego{grid-template-columns:1fr;}
-  .riel{position:static;border-right:0;border-bottom:1px solid var(--regla);padding:0 0 30px;margin-bottom:34px;}
-  .columna{padding:0;}
-}
-
-.rotulo{
-  font-family:"DM Mono",ui-monospace,monospace;
-  font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--tenue);margin:0 0 18px;
-}
-.riel .rotulo + .rotulo{margin-top:34px;}
-
-.equipo{list-style:none;margin:0;padding:0;}
-.equipo li{margin:0 0 15px;line-height:1.42;}
-.equipo a{
-  display:inline-block;font-size:.845rem;font-weight:700;color:var(--tinta);
-  text-decoration:none;border-bottom:1px solid transparent;
-  transition:color .18s,border-color .18s;
-}
-.equipo a:hover{color:var(--azul);border-bottom-color:var(--azul);}
-/* mismo tratamiento para quien aún no tiene LinkedIn */
-.equipo b{display:inline-block;font-size:.845rem;font-weight:700;color:var(--tinta);}
-.equipo span{display:block;font-size:.79rem;color:var(--tenue);}
-
-.temas{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;}
-.tema{
-  font-family:"DM Mono",ui-monospace,monospace;
-  font-size:.71rem;letter-spacing:.02em;
-  padding:5px 11px;border:1px solid var(--regla);border-radius:100px;
-  background:transparent;color:var(--tenue);cursor:pointer;
-  transition:color .18s,border-color .18s,background-color .18s;
-}
-.tema:hover{color:var(--azul);border-color:var(--azul-tenue);}
-.tema[aria-pressed="true"]{
-  background:var(--azul);border-color:var(--azul);color:#fff;
-}
-:root[data-theme="dark"] .tema[aria-pressed="true"]{color:#0D0F16;}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .tema[aria-pressed="true"]{color:#0D0F16;}
-}
-
-/* ─── lista de informes ─────────────────────────────────── */
-.barra{
-  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
-  padding-bottom:14px;margin-bottom:0;border-bottom:1px solid var(--tinta);
-}
-.barra .rotulo{margin:0;}
-.conteo{
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.72rem;
-  color:var(--tenue);font-variant-numeric:tabular-nums;
-}
-
-.informe{border-bottom:1px solid var(--regla);}
-.informe[hidden]{display:none;}
-
-.informe > summary{
-  list-style:none;cursor:pointer;
-  display:grid;grid-template-columns:100px 1fr auto;gap:22px;align-items:baseline;
-  padding:22px 4px 22px 0;
-  transition:background-color .2s;
-}
-.informe > summary::-webkit-details-marker{display:none;}
-.informe > summary:hover{background:var(--realce);}
-.fecha{
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.755rem;
-  color:var(--tenue);font-variant-numeric:tabular-nums;letter-spacing:.01em;
-  white-space:nowrap;padding-top:2px;
-}
-.rubro{
-  font-size:clamp(1.02rem,1.6vw,1.16rem);font-weight:700;line-height:1.42;
-  color:var(--azul);letter-spacing:-.012em;text-wrap:balance;
-}
-.pliegos{
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.755rem;
-  color:var(--tenue);white-space:nowrap;display:flex;align-items:center;gap:14px;
-  padding-top:2px;
-}
-.cruz{
-  width:11px;height:11px;position:relative;flex:none;color:var(--tenue);
-  transition:transform .28s cubic-bezier(.4,0,.2,1),color .2s;
-}
-.cruz::before,.cruz::after{
-  content:"";position:absolute;inset:50% 0 auto;height:1.5px;background:currentColor;
-  transform:translateY(-50%);
-}
-.cruz::after{transform:translateY(-50%) rotate(90deg);transition:opacity .28s;}
-.informe[open] .cruz{transform:rotate(180deg);color:var(--azul);}
-.informe[open] .cruz::after{opacity:0;}
-.informe[open] > summary{background:transparent;}
-
-@media (max-width:640px){
-  .informe > summary{grid-template-columns:1fr auto;gap:6px 14px;}
-  .fecha{grid-column:1;grid-row:1;}
-  .pliegos{grid-column:2;grid-row:1;}
-  .rubro{grid-column:1 / -1;grid-row:2;}
-}
-
-/* ─── claves numeradas: el gesto propio del informe ─────── */
-.detalle{padding:2px 0 34px;}
-.claves{list-style:none;counter-reset:clave;margin:0;padding:0;max-width:66ch;}
-.claves li{
-  counter-increment:clave;
-  display:grid;grid-template-columns:56px 1fr;gap:0 10px;
-  margin:0 0 22px;
-}
-.claves li::before{
-  content:counter(clave);
-  font-size:2.4rem;font-weight:700;line-height:.94;color:var(--azul);
-  letter-spacing:-.04em;font-variant-numeric:lining-nums;
-}
-.claves p{margin:0;text-align:justify;hyphens:auto;font-size:.955rem;line-height:1.68;}
-@media (max-width:640px){
-  .claves li{grid-template-columns:40px 1fr;}
-  .claves li::before{font-size:1.9rem;}
-  .claves p{text-align:left;hyphens:none;}
-}
-
-.pie-informe{
-  display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
-  margin-top:26px;padding-top:18px;border-top:1px solid var(--regla);max-width:66ch;
-}
-.abrir{
-  display:inline-flex;align-items:center;gap:9px;
-  font-size:.83rem;font-weight:600;letter-spacing:.01em;
-  color:var(--azul);text-decoration:none;
-  padding:9px 17px;border:1px solid var(--azul);border-radius:2px;
-  transition:background-color .18s,color .18s;
-}
-.abrir:hover{background:var(--azul);color:var(--papel);}
-:root[data-theme="dark"] .abrir:hover{color:#0D0F16;}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .abrir:hover{color:#0D0F16;}
-}
-.marbete{
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.71rem;
-  color:var(--tenue);
-}
-.marbete::before{content:"— ";}
-
-.vacio{
-  padding:56px 0;text-align:center;color:var(--tenue);font-size:.92rem;
-}
-.vacio[hidden]{display:none;}
-
-/* ─── equipo: visible siempre, sin importar el apartado ─── */
-/* ─── portada de diario: lo último publicado ────────────── */
-.tapa{padding:16px 0 40px;}
-.tapa[hidden]{display:none;}
-.tapa .env{
-  display:grid;grid-template-columns:1.55fr 1fr;gap:0 46px;
-}
-@media (max-width:900px){
-  .tapa .env{grid-template-columns:1fr;gap:0;}
-}
-
-.nota{
-  padding:26px 46px 6px 0;
-  border-right:1px solid var(--regla);border-top:1px solid var(--tinta);
-}
-.secundarias{border-top:1px solid var(--tinta);}
-@media (max-width:900px){
-  .nota{border-right:0;padding:26px 0 30px;border-bottom:1px solid var(--regla);}
-  .secundarias{border-top:0;}
-}
-.tapa .rotulo{margin:0 0 20px;}
-.nota-fecha{
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.735rem;
-  color:var(--tenue);font-variant-numeric:tabular-nums;
-  display:block;margin-bottom:12px;
-}
-.nota-tit{
-  display:block;margin:0 0 18px;
-  font-size:clamp(1.5rem,2.9vw,2.15rem);font-weight:700;line-height:1.16;
-  letter-spacing:-.024em;color:var(--azul);text-wrap:balance;
-  text-decoration:none;border-bottom:2px solid transparent;
-  transition:border-color .18s;
-}
-a.nota-tit:hover{border-bottom-color:var(--azul);}
-.nota-bajada{
-  margin:0 0 24px;font-size:.98rem;line-height:1.66;color:var(--cuerpo);
-  max-width:54ch;
-}
-.nota-pie{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
-
-.secundarias{padding:26px 0 6px;display:flex;flex-direction:column;}
-.mini{
-  padding:0 0 18px;margin-bottom:18px;border-bottom:1px solid var(--regla);
-}
-.mini:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0;}
-.mini-alto{
-  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
-  margin-bottom:8px;
-}
-.mini-fecha{
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.7rem;
-  color:var(--tenue);font-variant-numeric:tabular-nums;white-space:nowrap;
-}
-.mini-tit{
-  display:block;font-size:.975rem;font-weight:700;line-height:1.38;
-  letter-spacing:-.01em;color:var(--tinta);text-decoration:none;
-  transition:color .18s;
-}
-.mini-tit:hover{color:var(--azul);}
-.mas{
-  display:inline-flex;align-items:center;gap:7px;
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.7rem;
-  letter-spacing:.07em;text-transform:uppercase;color:var(--tenue);
-  background:none;border:0;padding:0;cursor:pointer;
-  transition:color .18s;
-}
-.mas:hover{color:var(--azul);}
-.secundarias .mas{margin-top:20px;align-self:flex-start;}
-
-.tira-equipo{padding:12px 0 34px;}
-.tira-equipo .rotulo{
-  padding-bottom:14px;margin:0 0 22px;border-bottom:1px solid var(--regla);
-}
-.tira-equipo .equipo{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:20px 34px;
-}
-.tira-equipo .equipo li{margin:0;}
-@media (max-width:900px){
-  .tira-equipo .equipo{grid-template-columns:repeat(2,1fr);}
-}
-@media (max-width:560px){
-  .tira-equipo .equipo{grid-template-columns:1fr;gap:15px;}
-}
-
-/* ─── puertas: los dos apartados de la portada ──────────── */
-.puertas{padding:8px 0 0;}
-.puertas .env{
-  display:grid;grid-template-columns:1fr 1fr;gap:22px;
-}
-@media (max-width:760px){
-  .puertas .env{grid-template-columns:1fr;gap:16px;}
-}
-.puerta{
-  position:relative;overflow:hidden;
-  display:grid;grid-template-rows:auto auto 1fr auto;gap:0;
-  text-align:left;font:inherit;color:inherit;cursor:pointer;
-  background:var(--pliego);border:1px solid var(--regla);border-radius:3px;
-  padding:30px 32px 26px;
-  transition:border-color .22s,background-color .22s,transform .22s;
-}
-.puerta::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
-  background:var(--azul);transform:scaleX(0);transform-origin:left;
-  transition:transform .3s cubic-bezier(.4,0,.2,1);
-}
-.puerta:hover{border-color:var(--azul-tenue);transform:translateY(-2px);}
-.puerta[aria-expanded="true"]{
-  background:var(--azul-fondo);border-color:var(--azul);
-}
-.puerta[aria-expanded="true"]::after{transform:scaleX(1);}
-.puerta-n{
-  font-family:"DM Mono",ui-monospace,monospace;
-  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--tenue);font-variant-numeric:tabular-nums;margin-bottom:14px;
-}
-.puerta-tit{
-  font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:700;line-height:1.06;
-  letter-spacing:-.028em;color:var(--azul);margin-bottom:12px;
-}
-.puerta-baja{
-  font-size:.9rem;line-height:1.62;color:var(--cuerpo);max-width:40ch;
-  margin-bottom:22px;
-}
-.puerta-pie{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.72rem;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--azul);
-}
-.flecha{
-  width:9px;height:9px;flex:none;position:relative;
-  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
-  transform:rotate(45deg) translate(-1px,-1px);
-  transition:transform .28s cubic-bezier(.4,0,.2,1);
-}
-.puerta[aria-expanded="true"] .flecha{transform:rotate(-135deg) translate(-2px,-2px);}
-
-/* ─── paneles desplegables ──────────────────────────────── */
-.panel{padding-top:14px;}
-.panel[hidden]{display:none;}
-
-/* ─── informes flash ────────────────────────────────────── */
-.flash-lista{border-bottom:1px solid var(--tinta);}
-.cifra-flash{
-  font-family:"DM Mono",ui-monospace,monospace;
-  font-size:1.02rem;font-weight:500;color:var(--azul);
-  font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.01em;
-}
-.veredicto{
-  max-width:66ch;margin:0 0 22px;
-  font-size:1rem;line-height:1.6;color:var(--cuerpo);
-}
-.veredicto strong{color:var(--tinta);font-weight:700;}
-.datos-flash{
-  display:flex;flex-wrap:wrap;gap:10px 34px;margin:0;padding:0;
-  max-width:66ch;
-}
-.datos-flash div{display:flex;flex-direction:column;gap:3px;}
-.datos-flash dt{
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.66rem;
-  letter-spacing:.09em;text-transform:uppercase;color:var(--tenue);
-}
-.datos-flash dd{
-  margin:0;font-family:"DM Mono",ui-monospace,monospace;
-  font-size:.94rem;color:var(--tinta);font-variant-numeric:tabular-nums;
-}
-@media (max-width:640px){
-  .cifra-flash{font-size:.9rem;}
-  .datos-flash{gap:10px 22px;}
-}
-
-/* ─── colofón ───────────────────────────────────────────── */
-.colofon{
-  margin-top:76px;border-top:1px solid var(--regla);
-  background:var(--pliego);padding:56px 0 64px;
-}
-.colofon .env{display:grid;gap:38px;justify-items:center;text-align:center;}
-.colofon .buho{width:52px;height:45px;color:var(--tinta);opacity:.55;}
-.aviso{
-  max-width:62ch;margin:0;font-size:.8rem;line-height:1.66;color:var(--tenue);
-}
-.remate{
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.71rem;
-  letter-spacing:.03em;color:var(--tenue);margin:0;
-}
-.remate a{color:var(--tenue);text-decoration:none;border-bottom:1px solid var(--regla);}
-.remate a:hover{color:var(--azul);border-bottom-color:var(--azul);}
-
-/* ─── nube de términos ──────────────────────────────────── */
-.nube{padding:0 0 12px;}
-.nube .barra{margin-bottom:30px;}
-.voces{
-  display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;
-  gap:6px 26px;padding:8px 0 26px;
-}
-.voz{
-  font-size:var(--s);line-height:1.3;letter-spacing:-.02em;
-  transition:color .18s,opacity .18s;
-}
-.voz-a{color:var(--azul);font-weight:700;}
-.voz-b{color:var(--tinta);font-weight:600;}
-.voz-c{color:var(--tenue);font-weight:400;}
-.voces:hover .voz{opacity:.42;}
-.voces .voz:hover{color:var(--azul);opacity:1;}
-.nube-pie{
-  font-family:"DM Mono",ui-monospace,monospace;font-size:.71rem;
-  color:var(--tenue);text-align:center;margin:0;
-  padding-top:16px;border-top:1px solid var(--regla);
-}
-@media (max-width:640px){
-  .voces{gap:4px 16px;}
-  .voz{font-size:calc(var(--s) * .8);}
-}
-
-/* ─── entrada en escena ─────────────────────────────────── */
-.surge{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1);}
-.surge.dentro{opacity:1;transform:none;}
-@media (prefers-reduced-motion: reduce){
-  *{animation:none !important;transition:none !important;}
-  .surge{opacity:1;transform:none;}
-  html{scroll-behavior:auto;}
-}
+  --bg:#0b0f17;--bg2:#111726;--card:#141b2d;--line:#222b40;
+  --text:#e6e9f0;--muted:#9aa4b8;--accent:#4fd1c5;--accent2:#7c9cff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.65;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.mono{font-family:"JetBrains Mono",monospace}
+nav{position:fixed;left:0;top:0;bottom:0;width:230px;z-index:10;background:var(--bg2);border-right:1px solid var(--line);padding:36px 24px;display:flex;flex-direction:column}
+nav .logo{font-weight:700;font-size:22px;color:var(--text);margin-bottom:6px}
+nav .logo span{color:var(--accent)}
+nav .sub{color:var(--muted);font-size:12.5px;margin-bottom:36px;line-height:1.4}
+nav ul{list-style:none;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+nav ul a{display:block;color:var(--muted);padding:8px 12px;border-left:2px solid transparent;border-radius:0 6px 6px 0;transition:.2s}
+nav ul a:hover,nav ul a.active{color:var(--accent);background:rgba(79,209,197,.07);border-left-color:var(--accent);text-decoration:none}
+nav .foot{margin-top:auto;font-size:12px;color:var(--muted)}
+body{padding-left:230px}
+main{max-width:1000px;margin:auto;padding:0 20px}
+.hero{display:flex;flex-direction:column;justify-content:center;padding:110px 0 70px}
+.hero .hi{color:var(--accent);font-size:15px;margin-bottom:12px}
+.hero h1{font-size:clamp(36px,7vw,64px);line-height:1.1;font-weight:700}
+.hero h2{font-size:clamp(20px,3.5vw,32px);color:var(--muted);font-weight:500;margin-top:10px}
+.hero p{max-width:640px;color:var(--muted);margin-top:20px;font-size:18px}
+.btns{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.btn{border:1px solid var(--accent);color:var(--accent);padding:11px 22px;border-radius:8px;font-size:14px;font-weight:500;transition:.2s}
+.btn:hover{background:rgba(79,209,197,.1);text-decoration:none}
+.btn.fill{background:var(--accent);color:var(--bg)}
+.btn.fill:hover{background:#6ee0d6}
+section{padding:80px 0;border-top:1px solid var(--line)}
+.title{display:flex;align-items:center;gap:12px;font-size:28px;font-weight:700;margin-bottom:36px}
+.title .n{color:var(--accent);font-size:16px}
+.timeline{position:relative;padding-left:26px}
+.timeline:before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--accent2),transparent)}
+.item{position:relative;margin-bottom:36px}
+.item:before{content:"";position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.item .head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.item h3{font-size:19px}
+.item .org{color:var(--accent)}
+.item .date{color:var(--muted);font-size:13px}
+.item .role{color:var(--muted);font-size:15px;margin:2px 0 10px}
+.item ul{padding-left:18px;color:#c7cdd9}
+.item li{margin-bottom:5px}
+.item li::marker{color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card .ic{font-size:26px;margin-bottom:12px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px}
+.card .more{display:inline-block;margin-top:14px;font-size:13px}
+.subtitle{font-size:15px;font-weight:600;color:var(--accent2);letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px}
+.grid+.subtitle{margin-top:40px}
+.interests{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+.int{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;transition:.25s}
+.int:hover{transform:translateY(-4px);border-color:var(--accent)}
+.int .ic{font-size:26px;margin-bottom:10px}
+.int h3{font-size:16px;margin-bottom:6px}
+.int p{color:var(--muted);font-size:14px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{border:1px solid var(--accent);color:var(--accent);background:rgba(79,209,197,.08);padding:6px 14px;border-radius:8px;font-size:14px;font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-size:12px;padding:4px 10px;border-radius:20px;background:rgba(124,156,255,.12);color:var(--accent2);font-family:"JetBrains Mono",monospace}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.skills h4{color:var(--accent);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.contact{text-align:center;max-width:560px;margin:auto}
+.contact p{color:var(--muted);margin-bottom:28px}
+.contact .btns{justify-content:center}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:40px 20px;border-top:1px solid var(--line)}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){body{padding-left:0}nav{position:sticky;bottom:auto;width:auto;flex-direction:row;align-items:center;padding:12px 16px;border-right:0;border-bottom:1px solid var(--line);overflow-x:auto;gap:12px}nav .logo{margin:0}nav .sub,nav .foot{display:none}nav ul{flex-direction:row;gap:2px;font-size:13px;white-space:nowrap}nav ul a{border-left:0;border-radius:6px;padding:6px 10px}section{padding:60px 0}}
 </style>
-
-<noscript><style>.surge{opacity:1;transform:none;}</style></noscript>
 </head>
 <body>
 
-<header class="corrido">
-  <div class="env">
-    <a class="marca" href="#">
-      <i class="buho" aria-hidden="true"></i>
-      <span>
-        <b>Club de Finanzas FEN UChile</b>
-        <span>Área de Research</span>
-      </span>
-    </a>
-    <div class="folio">
-      <em>Research · Club de Finanzas FEN</em>
-      <span class="pag">p.&nbsp;<span id="folio-n">1</span></span>
-    </div>
-  </div>
-</header>
+<nav>
+  <a href="#" class="logo">RM<span>.</span></a>
+  <div class="sub">Ramón Mazuela Barría<br>Ingeniero Comercial</div>
+  <ul>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#formacion">Formación</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#actividades">Actividades</a></li>
+    <li><a href="#habilidades">Habilidades</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="foot mono">rmazuela10.github.io</div>
+</nav>
 
 <main>
-  <section class="portada">
-    <div class="env">
-      <p class="epigrafe">Facultad de Economía y Negocios · Universidad de Chile</p>
-      <h1>Informes</h1>
-      <p class="bajada">Club de Finanzas FEN UChile – Área de Research</p>
-      <p class="entrada">Somos el <strong>equipo de Research</strong> del Club de Finanzas. Escribimos desde el quehacer universitario, con un objetivo: <strong>acercar a los estudiantes a la actualidad financiera y económica</strong>. Esta página es el repositorio de todos los informes hechos por el equipo.</p>
+<header class="hero">
+  <div class="hi mono">Hola, mi nombre es</div>
+  <h1>Ramón Mazuela Barría</h1>
+  <p>Ingeniero Comercial, Mención Ciencias Económicas en la Facultad de Economía y Negocios de la Universidad de Chile. Minor en Macrofinanzas y Banca.</p>
+</header>
 
-      <div class="zocalo">
-        <i class="buho filigrana" aria-hidden="true"></i>
-        <dl class="cifras">
-          <div class="cifra">
-            <dt>Informes</dt>
-            <dd id="portada-informes">11</dd>
-          </div>
-          <div class="cifra">
-            <dt>Flash</dt>
-            <dd id="portada-flash">2</dd>
-          </div>
-          <div class="cifra">
-            <dt>Período</dt>
-            <dd id="portada-periodo">abr <small>–</small> sept <small>2026</small></dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-  </section>
+<section id="sobre-mi" class="reveal">
+  <div class="title"><span class="n mono">01.</span>Sobre mí</div>
+  <p style="color:var(--muted);max-width:760px">Ingeniero Comercial con formación en economía, macrofinanzas y banca, interesado en la intersección entre finanzas, tecnología e innovación. Mi foco está en inversiones, macroeconomía y finanzas corporativas, incorporando herramientas de inteligencia artificial y análisis de datos para estudiar mercados, automatizar procesos y apoyar la toma de decisiones. Me interesa especialmente explorar cómo las nuevas tecnologías, desde la IA hasta el fintech y el blockchain, están transformando la gestión de inversiones, el análisis financiero y los modelos de negocio.</p>
+  <div class="chips">
+    <span class="chip">Finanzas corporativas</span><span class="chip">Macroeconomía</span><span class="chip">Inversiones</span><span class="chip">Inteligencia artificial</span><span class="chip">Sistemas de pago</span><span class="chip">Innovación</span>
+  </div>
+</section>
 
-  <!-- La tapa se llena sola desde las fichas del archivo: nunca hay que
-       actualizarla a mano al publicar. Si el JS no corre, queda oculta. -->
-  <section class="tapa surge" id="tapa" aria-labelledby="tapa-rotulo" hidden>
-    <div class="env">
-
-      <article class="nota">
-        <p class="rotulo" id="tapa-rotulo">Último informe</p>
-        <span class="nota-fecha" id="nota-fecha"></span>
-        <a class="nota-tit" id="nota-tit" href="#" target="_blank" rel="noopener"></a>
-        <p class="nota-bajada" id="nota-bajada"></p>
-        <div class="nota-pie">
-          <a class="abrir" id="nota-abrir" href="#" target="_blank" rel="noopener">Abrir informe ↗</a>
-          <button class="mas" type="button" id="ir-informes">Ver el archivo <i class="flecha" aria-hidden="true"></i></button>
-        </div>
-      </article>
-
-      <aside class="secundarias" aria-labelledby="mini-rotulo">
-        <p class="rotulo" id="mini-rotulo">Últimos flash</p>
-        <div id="lista-mini"></div>
-        <button class="mas" type="button" id="ir-flash">Ver todos los flash <i class="flecha" aria-hidden="true"></i></button>
-      </aside>
-
-    </div>
-  </section>
-
-  <section class="tira-equipo surge" aria-labelledby="equipo-rotulo">
-    <div class="env">
-      <p class="rotulo" id="equipo-rotulo">Equipo</p>
-      <ul class="equipo">
-        <li><a href="https://www.linkedin.com/in/ram%C3%B3n-mazuela-barr%C3%ADa-8b4698320/" target="_blank" rel="noopener" aria-label="Ramón Mazuela Barría en LinkedIn">Ramón Mazuela</a><span>Head of Research</span></li>
-        <li><a href="https://www.linkedin.com/in/nigonzalez/" target="_blank" rel="noopener" aria-label="Nicolás González en LinkedIn">Nicolás González</a><span>Finance Lead Researcher</span></li>
-        <li><a href="https://www.linkedin.com/in/catalina-solange-cortez-boggen-81739b15b/" target="_blank" rel="noopener" aria-label="Catalina Cortez en LinkedIn">Catalina Cortez</a><span>Macroeconomics Lead Researcher</span></li>
-        <li><a href="https://www.linkedin.com/in/daniela-olmedo-13a029318/" target="_blank" rel="noopener" aria-label="Daniela Olmedo en LinkedIn">Daniela Olmedo</a><span>Research Analyst</span></li>
-        <li><a href="https://www.linkedin.com/in/juan-parra-angel-a0b727187/" target="_blank" rel="noopener" aria-label="Juan Parra en LinkedIn">Juan Parra</a><span>Research Analyst</span></li>
-        <li><b>Lucas Valenzuela</b><span>Research Analyst</span></li>
+<section id="experiencia" class="reveal">
+  <div class="title"><span class="n mono">02.</span>Experiencia</div>
+  <div class="timeline">
+    <div class="item">
+      <div class="head"><h3><span class="org">Club de Finanzas FEN</span></h3><span class="date mono">Abr 2026 — Actualidad</span></div>
+      <div class="role">Head of Research · Santiago, Chile</div>
+      <ul>
+        <li>Coordino el área de Research: defino temas, planifico publicaciones y hago seguimiento del trabajo del equipo.</li>
+        <li>Reviso informes (redacción y formato) y gestiono su publicación en las plataformas del club, integrando IA de forma transversal en distintas automatizaciones del proceso de creación de informes.</li>
+        <li>Administro archivos, plantillas y repositorios en GitHub, paso los informes a LaTeX e implementé Notion para la comunicación y el seguimiento del trabajo interno.</li>
       </ul>
     </div>
-  </section>
-
-  <section class="puertas surge" aria-label="Secciones del archivo">
-    <div class="env">
-
-      <button class="puerta" type="button" id="puerta-informes"
-              data-panel="panel-informes" aria-expanded="false" aria-controls="panel-informes">
-        <span class="puerta-n"><span id="n-informes">11</span> publicados</span>
-        <span class="puerta-tit">Informes</span>
-        <span class="puerta-baja">Análisis de fondo sobre coyuntura macroeconómica y de mercados. Entre 3 y 7 páginas, con los puntos clave del documento y el PDF completo.</span>
-        <span class="puerta-pie">Ver informes <i class="flecha" aria-hidden="true"></i></span>
-      </button>
-
-      <button class="puerta" type="button" id="puerta-flash"
-              data-panel="panel-flash" aria-expanded="false" aria-controls="panel-flash">
-        <span class="puerta-n"><span id="n-flash">2</span> publicados</span>
-        <span class="puerta-tit">Flash</span>
-        <span class="puerta-baja">Lectura inmediata de distintos datos económicos y financieros. Una página, con la cifra protagonista, el veredicto y los datos de apoyo.</span>
-        <span class="puerta-pie">Ver flash <i class="flecha" aria-hidden="true"></i></span>
-      </button>
-
+    <div class="item">
+      <div class="head"><h3><span class="org">BICE Inversiones</span></h3><span class="date mono">Ene 2026 — Jun 2026</span></div>
+      <div class="role">Práctica Profesional · Sub-Gerencia de Renta Fija Extranjera</div>
+      <ul>
+        <li>Gestión diaria de la caja y liquidez, además de las operaciones de fondos de renta fija extranjera.</li>
+        <li>Apoyo en reportes semanales, informes periódicos y en el seguimiento de indicadores clave de los fondos.</li>
+        <li>Análisis de renta fija mediante Bloomberg, incluyendo extracción de datos para análisis fundamental, construcción de fair value, evaluación de nuevas emisiones, entre otras.</li>
+        <li>Análisis de datos para la investigación de condiciones del mercado de renta fija, así como para los determinantes de la estrategia de inversión del área.</li>
+        <li>Seguimiento de condiciones macroeconómicas y de mercado, tanto nacionales como internacionales para el apoyo de la estrategia de inversión.</li>
+      </ul>
     </div>
-  </section>
-
-  <div class="env panel" id="panel-flash" hidden>
-    <div class="pliego">
-
-      <aside class="riel">
-        <p class="rotulo">Indicadores</p>
-        <div class="temas" id="temas-flash">
-          <button class="tema" type="button" data-tema="*" aria-pressed="true">Todos</button>
-          <button class="tema" type="button" data-tema="ipc" aria-pressed="false">IPC</button>
-          <button class="tema" type="button" data-tema="tpm" aria-pressed="false">TPM</button>
-          <button class="tema" type="button" data-tema="imacec" aria-pressed="false">IMACEC</button>
-          <button class="tema" type="button" data-tema="empleo" aria-pressed="false">Empleo</button>
-          <button class="tema" type="button" data-tema="fed" aria-pressed="false">Fed</button>
-        </div>
-      </aside>
-
-      <div class="columna">
-        <div class="barra">
-          <p class="rotulo">Informes flash</p>
-          <p class="conteo"><span id="conteo-flash">2</span> flash</p>
-        </div>
-
-        <div class="flash-lista" id="lista-flash">
-
-          <details class="informe flash" data-temas="imacec">
-            <summary>
-              <span class="fecha">2 nov 2026</span>
-              <span class="rubro">Imacec crece 0,2 % en septiembre</span>
-              <span class="pliegos"><span class="cifra-flash">0,2 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Tercera cifra mensual positiva del año, pero tercer trimestre en negativo.</strong> El dato anual es débil y cercano a nulo: el crecimiento del componente no minero (+2,0 %) fue compensado por la fuerte caída de la minería (-12,1 %), explicada por menores leyes del mineral de cobre y una suspensión temporal de faenas. La serie desestacionalizada rebota 1,9 % contra agosto por minería, pero el no minero avanza de forma moderada. La lectura es de debilidad anual con un rebote mensual puntual y concentrado en minería, no de una recuperación amplia de la actividad.</p>
-              <dl class="datos-flash">
-                <div><dt>Imacec no minero</dt><dd>+2,0 %</dd></div>
-                <div><dt>Minería</dt><dd>-12,1 %</dd></div>
-                <div><dt>Desest. vs. agosto</dt><dd>+1,9 %</dd></div>
-                <div><dt>Desest. 12 meses</dt><dd>-0,9 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20IMACEC%20Noviembre%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Actividad · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe flash" data-temas="fed">
-            <summary>
-              <span class="fecha">30 oct 2026</span>
-              <span class="rubro">Una FED escéptica por la inflación y un repunte en la actividad</span>
-              <span class="pliegos"><span class="cifra-flash">3,75–4,00 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Mantención.</strong> El FOMC decidió no mover la tasa y mantener el rango de 3,75-4 %, tras el alza de la reunión anterior; Cook y Hammack preferían un alza de 25 pb. Persisten las presiones inflacionarias por el petróleo: el IPC subió 0,6 % en septiembre y 3,7 % en doce meses, por lo que el mercado anticipa una probable alza en la siguiente reunión. En la actividad, el PIB del tercer trimestre avanzó 3,4 % anualizado, 0,2 % más de lo esperado, impulsado por inversión empresarial, un consumo sólido y mayor gasto de gobierno.</p>
-              <dl class="datos-flash">
-                <div><dt>Rango anterior</dt><dd>3,75–4,00 %</dd></div>
-                <div><dt>Consenso de mercado</dt><dd>0 pb</dd></div>
-                <div><dt>Votación</dt><dd>10–2</dd></div>
-                <div><dt>IPC EE.UU. (12 meses)</dt><dd>3,7 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20FOMC%20Octubre%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Política monetaria EE.UU. · Macro global</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe flash" data-temas="empleo">
-            <summary>
-              <span class="fecha">29 oct 2026</span>
-              <span class="rubro">Mercado del empleo no cede y anota nueva alza</span>
-              <span class="pliegos"><span class="cifra-flash">9,8 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Tasa de desocupación en 9,8 %.</strong> Aumentó 1,3 puntos porcentuales en doce meses en el trimestre móvil julio-septiembre, con una tasa ajustada estacionalmente de 9,6 % y el cuarto mes seguido de alzas. La fuerza de trabajo aumentó 0,3 % mientras las personas ocupadas se redujeron 1,1 %, y la población fuera de la fuerza de trabajo aumentó 1,8 % en doce meses. La tasa de ocupación informal alcanzó 26,4 %, con un alza de 0,2 pp. en doce meses.</p>
-              <dl class="datos-flash">
-                <div><dt>Var. en 12 meses</dt><dd>+1,3 pp</dd></div>
-                <div><dt>Ocupados (12 m)</dt><dd>-1,1 %</dd></div>
-                <div><dt>Participación</dt><dd>61,6 %</dd></div>
-                <div><dt>Informalidad</dt><dd>26,4 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20EMP%20Octubre%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Mercado laboral · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe flash" data-temas="tpm">
-            <summary>
-              <span class="fecha">27 oct 2026</span>
-              <span class="rubro">Banco Central mantiene la TPM en 4,5 %</span>
-              <span class="pliegos"><span class="cifra-flash">4,5 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Mantención.</strong> Decisión unánime, en línea con lo que anticipaba el mercado; la tasa cumple su séptima reunión consecutiva sin cambios desde diciembre de 2025. El Consejo mantiene por dos razones: los riesgos para la inflación aumentaron de forma relevante, con el petróleo cerca de 25 % más caro desde el IPoM de septiembre y expectativas de corto plazo al alza (3,2 % a dos años en la EOF), y la actividad interna sigue débil, con el Imacec de agosto cayendo 1,0 % por la minería.</p>
-              <dl class="datos-flash">
-                <div><dt>TPM anterior</dt><dd>4,5 %</dd></div>
-                <div><dt>Consenso de mercado</dt><dd>4,5 %</dd></div>
-                <div><dt>Votación</dt><dd>Unánime</dd></div>
-                <div><dt>IPC a 12 meses</dt><dd>4,1 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20TPM%20Octubre%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Política monetaria · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe flash" data-temas="ipc">
-            <summary>
-              <span class="fecha">8 oct 2026</span>
-              <span class="rubro">IPC de septiembre sube 0,4 % y la inflación anual se establece en 4,1 %</span>
-              <span class="pliegos"><span class="cifra-flash">0,4 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Levemente por debajo del 0,5 % proyectado por el mercado.</strong> El IPC de septiembre de 2026 registró una variación mensual de 0,4 %, acumulando 4,0 % en el año y 4,1 % a doce meses, más de un punto sobre la meta del Banco Central. Nueve de las 13 divisiones de la canasta aportaron incidencias positivas: alimentos y bebidas no alcohólicas subieron 0,6 % (0,133 pp.) y transporte 0,9 % (0,122 pp.), mientras seguros y servicios financieros cayeron 5,9 % (-0,056 pp.).</p>
-              <dl class="datos-flash">
-                <div><dt>Consenso de mercado</dt><dd>0,5 %</dd></div>
-                <div><dt>Variación en 12 meses</dt><dd>4,1 %</dd></div>
-                <div><dt>Acumulado en el año</dt><dd>4,0 %</dd></div>
-                <div><dt>Sin volátiles (mes)</dt><dd>0,3 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20IPC%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Inflación · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe flash" data-temas="imacec">
-            <summary>
-              <span class="fecha">1 oct 2026</span>
-              <span class="rubro">El Imacec cae 1,0 % en agosto, arrastrado por el desplome de la minería</span>
-              <span class="pliegos"><span class="cifra-flash">-1,0 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Sexta caída del año y segunda consecutiva.</strong> El dato quedó dentro del rango que anticipaba el mercado y se explica casi por completo por la minería, que se desplomó 17,4 % por menores leyes del mineral, mantenciones programadas y condiciones climáticas adversas. Fuera de ella la economía sí avanzó: el Imacec no minero subió 1,4 %, con comercio en 2,2 % y servicios en 0,8 %. La distinción separa un problema de oferta puntual de uno de demanda, aunque el registro pesa más sabiendo que agosto de 2026 tuvo un día hábil más que agosto de 2025.</p>
-              <dl class="datos-flash">
-                <div><dt>Imacec no minero</dt><dd>+1,4 %</dd></div>
-                <div><dt>Minería</dt><dd>-17,4 %</dd></div>
-                <div><dt>Desest. vs. julio</dt><dd>-0,7 %</dd></div>
-                <div><dt>Desest. 12 meses</dt><dd>-2,1 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20IMACEC%20Agosto%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Actividad · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe flash" data-temas="empleo">
-            <summary>
-              <span class="fecha">30 sept 2026</span>
-              <span class="rubro">Desempleo anota nuevo máximo en 5 años</span>
-              <span class="pliegos"><span class="cifra-flash">9,6 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Tasa de desocupación en 9,6 %.</strong> Subió 1,0 punto porcentual en doce meses en el trimestre móvil junio-agosto, el registro más alto en más de cinco años; desestacionalizada queda en 9,4 %. La fuerza de trabajo creció 0,3 % mientras los ocupados cayeron 0,9 %: hay más desocupados (+13,0 %) y, a la vez, más personas que dejaron de buscar, con la participación bajando a 61,5 %. Los asalariados formales cayeron 2,9 % mientras crecen cuenta propia (3,1 %) y servicio doméstico (10,0 %), dos categorías de alta informalidad.</p>
-              <dl class="datos-flash">
-                <div><dt>Var. en 12 meses</dt><dd>+1,0 pp</dd></div>
-                <div><dt>Ocupados (12 m)</dt><dd>-0,9 %</dd></div>
-                <div><dt>Participación</dt><dd>61,5 %</dd></div>
-                <div><dt>Informalidad</dt><dd>26,3 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20EMP%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Mercado laboral · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe flash" data-temas="fed">
-            <summary>
-              <span class="fecha">16 sept 2026</span>
-              <span class="rubro">La Fed sube la tasa a 3,75 %–4,00 %: primera alza en tres años</span>
-              <span class="pliegos"><span class="cifra-flash">3,75–4,00 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Alza de 25 pb.</strong> Decisión unánime (12–0), en línea con lo que anticipaba el mercado: la primera alza desde julio de 2023, tras una pausa que se extendía desde diciembre de 2025. La inflación se aceleró a 3,4 % anual por la gasolina, con la subyacente sorprendiendo al alza en 0,3 % mensual por vivienda y servicios, sobre un mercado laboral sólido que dio margen para subir. Para Chile la cuenta llega por el tipo de cambio: el diferencial de tasas a favor del peso se estrecha a unos 60 puntos base.</p>
-              <dl class="datos-flash">
-                <div><dt>Rango anterior</dt><dd>3,50–3,75 %</dd></div>
-                <div><dt>Consenso de mercado</dt><dd>+25 pb</dd></div>
-                <div><dt>Votación</dt><dd>12–0</dd></div>
-                <div><dt>IPC EE.UU. (12 meses)</dt><dd>3,4 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20FOMC%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Política monetaria EE.UU. · Macro global</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe flash" data-temas="tpm">
-            <summary>
-              <span class="fecha">8 sept 2026</span>
-              <span class="rubro">Banco Central mantiene la TPM en 4,5 %</span>
-              <span class="pliegos"><span class="cifra-flash">4,5 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Mantención.</strong> Decisión unánime, en línea con lo que anticipaba el mercado. El IPC anual subió a 4,1 % en agosto empujado por elementos volátiles, mientras la subyacente se mantuvo en 3,3 %: el Consejo no tiene por qué reaccionar a un registro que atribuye a precios transitorios. La próxima reunión es el 26 y 27 de octubre.</p>
-              <dl class="datos-flash">
-                <div><dt>TPM anterior</dt><dd>4,5 %</dd></div>
-                <div><dt>Consenso de mercado</dt><dd>4,5 %</dd></div>
-                <div><dt>Votación</dt><dd>Unánime</dd></div>
-                <div><dt>IPC a 12 meses</dt><dd>4,1 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20TPM%20Sept%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Política monetaria · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe flash" data-temas="ipc">
-            <summary>
-              <span class="fecha">8 sept 2026</span>
-              <span class="rubro">IPC de agosto sube 0,6 % y la inflación anual llega a 4,1 %</span>
-              <span class="pliegos"><span class="cifra-flash">0,6 %</span> <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <p class="veredicto"><strong>Una sorpresa que no es de fondo.</strong> El mercado esperaba 0,3 % y el dato lo duplicó, llevando la inflación anual a 4,1 %, más de un punto sobre la meta del Banco Central. Pero la sorpresa no viene de la demanda: el IPC sin volátiles subió apenas 0,1 %. Nueve de las trece divisiones de la canasta aportaron incidencias positivas.</p>
-              <dl class="datos-flash">
-                <div><dt>Consenso de mercado</dt><dd>0,3 %</dd></div>
-                <div><dt>Variación en 12 meses</dt><dd>4,1 %</dd></div>
-                <div><dt>Acumulado en el año</dt><dd>3,6 %</dd></div>
-                <div><dt>Sin volátiles (mes)</dt><dd>0,1 %</dd></div>
-              </dl>
-              <div class="pie-informe">
-                <a class="abrir" href="flash/cff%20IPC%20Agosto%2026.pdf" target="_blank" rel="noopener">Abrir flash ↗</a>
-                <span class="marbete">Inflación · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          </div>
-
-        <p class="vacio" id="vacio-flash" hidden>No hay flash de este indicador todavía.</p>
-      </div>
-
+    <div class="item">
+      <div class="head"><h3><span class="org">Cumplo</span></h3><span class="date mono">Jul 2024 — Dic 2024</span></div>
+      <div class="role">Práctica Intermedia · Cumplo Lab — Innovación</div>
+      <ul>
+        <li>Lideré una investigación sobre financiamiento con activos digitales y blockchain, que presenté al fundador y CEO.</li>
+        <li>Co-lideré el levantamiento de cuellos de botella en el SaaS operativo, lo que llevó a reuniones con distintos proveedores de software.</li>
+        <li>Actualización y validación de datos, y redacción del comentario mensual del reporte de productos de inversión (Cumplo y Puma Token).</li>
+        <li>Propuestas de negocio para posicionar a Cumplo en el mercado de sistemas de pago.</li>
+      </ul>
     </div>
   </div>
+</section>
 
-  <div class="env panel" id="panel-informes" hidden>
-    <div class="pliego">
-
-      <aside class="riel">
-        <p class="rotulo">Temas</p>
-        <div class="temas" id="temas">
-          <button class="tema" type="button" data-tema="*" aria-pressed="true">Todos</button>
-          <button class="tema" type="button" data-tema="macro-cl" aria-pressed="false">Macro Chile</button>
-          <button class="tema" type="button" data-tema="macro-gl" aria-pressed="false">Macro global</button>
-          <button class="tema" type="button" data-tema="commodities" aria-pressed="false">Commodities</button>
-          <button class="tema" type="button" data-tema="mercados" aria-pressed="false">Mercados</button>
-          <button class="tema" type="button" data-tema="equity" aria-pressed="false">Renta variable</button>
-          <button class="tema" type="button" data-tema="fiscal" aria-pressed="false">Política fiscal</button>
-          <button class="tema" type="button" data-tema="corp" aria-pressed="false">Finanzas corporativas</button>
-        </div>
-      </aside>
-
-      <div class="columna">
-        <div class="barra">
-          <p class="rotulo">Archivo</p>
-          <p class="conteo"><span id="conteo-n">11</span> informes</p>
-        </div>
-
-        <div id="archivo">
-
-          <details class="informe surge" data-temas="macro-gl mercados">
-            <summary>
-              <span class="fecha">6 nov 2026</span>
-              <span class="rubro">Ueno Bank: el corralito paraguayo</span>
-              <span class="pliegos">8 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>Resolución de Ueno Bank: el 2 de noviembre, el directorio del Banco Central del Paraguay resolvió por unanimidad iniciar la resolución de la entidad, luego de que su índice de solvencia cayera por debajo del 50 % del mínimo exigido. Cerca de 2,94 millones de clientes quedaron temporalmente sin acceso a sus cuentas.</p></li>
-                <li><p>Créditos a empresas vinculadas: ueno bank vulneró los topes legales de exposición a partes relacionadas e intentó vender su cartera en mora a una firma vinculada (Vinanzas S.A.), financiada por el propio banco. Al revertirse la operación, el ajuste a su patrimonio y a sus activos ponderados por riesgo hizo caer su solvencia bajo el 50 % del mínimo legal.</p></li>
-                <li><p>Una crisis también institucional: renunció el presidente del BCP, Carlos Carvallo, y la renuncia del presidente Santiago Peña no prosperó por falta de quórum, lo que dio paso a un juicio político.</p></li>
-                <li><p>Canales de contagio: los principales riesgos para Paraguay son una salida de depósitos desde bancos medianos hacia los más grandes, la interrupción de pagos digitales, donde Ueno concentraba cerca de ⅔ de las transacciones minoristas, y el bono internacional de US$350 millones que había colocado en marzo de 2026.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-11-06_ueno_bank.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Macro global · Mercados</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="mercados macro-cl">
-            <summary>
-              <span class="fecha">23 oct 2026</span>
-              <span class="rubro">Fondo E: la paradoja del fondo más conservador de las AFP</span>
-              <span class="pliegos">9 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>Swaps con una valorización negativa cercana a US$11.000 millones. Al cierre de septiembre de 2026, los swaps de tasas de los fondos de pensiones tenían una valorización negativa cercana a US$11.000 millones. El mayor impacto relativo sobre el patrimonio correspondió al Fondo E, que cayó 10,39 % real entre enero y septiembre.</p></li>
-                <li><p>El fondo más conservador aumentó su exposición a tasas. Con los swaps, la duración del Fondo E llegó a cerca de 18 años a fines de 2025.</p></li>
-                <li><p>Una posición que creció cerca de cuarenta veces. El monto de swaps en que los fondos reciben tasa fija en dólares pasó de US$5.300 millones en 2023 a más de US$200.000 millones en 2025. Actores de la industria vinculan esta expansión con la competencia entre AFP y las ganancias de 2025.</p></li>
-                <li><p>Los incentivos apalancaron el mecanismo. Los swaps permitían recuperar la duración perdida con los retiros sin desembolsar el capital necesario para comprar bonos equivalentes, y la competencia entre AFP hizo que ninguna quisiera quedarse corta si las tasas bajaban. El argumento de calce con las rentas vitalicias sirvió de respaldo, aunque su efectividad depende de que la exposición sea coherente con las tasas y necesidades previsionales relevantes.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-10-23_fondo_e_afp.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Mercados · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="macro-gl mercados">
-            <summary>
-              <span class="fecha">9 oct 2026</span>
-              <span class="rubro">Pontes: conectando la tokenización con el sistema de pagos tradicional europeo</span>
-              <span class="pliegos">7 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>Un mercado sin dinero de banco central: a octubre de 2026, los activos del mundo real tokenizados sumaban cerca de US$39.000 millones, sin contar las stablecoins. Sin embargo, en muchas plataformas DLT esos activos se pagan con dinero emitido por privados, como stablecoins o depósitos bancarios tokenizados, y no con dinero de un banco central.</p></li>
-                <li><p>El riesgo de pagar con dinero privado: una stablecoin promete valer 1:1 respecto de una moneda, pero su valor depende de la solvencia y la liquidez de su emisor, sobre todo en momentos de estrés. El BIS concluye que las stablecoins salen mal evaluadas en las tres condiciones de un buen sistema monetario.</p></li>
-                <li><p>Dos modelos, un mismo puente: Pontes, en funcionamiento desde el 21 de septiembre de 2026, conecta las plataformas DLT con T2. El pago se liquida directamente en T2 o con euros tokenizados respaldados uno a uno en una Dedicated Cash Wallet, y en ambos casos el activo y el dinero se amarran mediante HashLink.</p></li>
-                <li><p>El equivalente chileno: el switch DvP de ComBanc cumple un rol conceptual similar entre el DCV y el LBTR, siendo la diferencia que son activos registrados en plataformas tradicionales. La prueba de concepto del BCCh, en cambio, exploró un entorno donde activo y dinero viven en un mismo registro.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-10-09_pontes_tokenizacion.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Macro global · Mercados</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="commodities macro-cl">
-            <summary>
-              <span class="fecha">30 sept 2026</span>
-              <span class="rubro">Cobre caro, producción débil: ¿por qué el aumento del precio del cobre no se traduce en crecimiento minero en Chile?</span>
-              <span class="pliegos">7 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>Durante 2026 el precio internacional del cobre se ha mantenido en niveles históricamente elevados, aumentando los ingresos y la rentabilidad de las empresas mineras. Sin embargo, la producción chilena ha seguido débil: durante el primer semestre de 2026 Codelco produjo cerca de 11 % menos que en igual período de 2025, aun cuando su EBITDA aumentó fuertemente.</p></li>
-                <li><p>Un precio elevado genera incentivos para producir e invertir, pero no elimina las restricciones físicas y operacionales de la industria. Menores leyes del mineral, envejecimiento de los yacimientos, mantenciones, accidentes, mayores costos de energía y combustibles y problemas de continuidad operacional están limitando la capacidad de Chile para responder al boom de precios.</p></li>
-                <li><p>La minería requiere proyectos de gran escala, con elevados costos hundidos y largos períodos entre la decisión de inversión y el inicio de la producción. Por ello, un aumento del precio puede reflejarse primero en mayores utilidades y flujo de caja, mientras que la expansión de capacidad ocurre con varios años de rezago.</p></li>
-                <li><p>Un cobre más caro mejora los términos de intercambio, los ingresos de las empresas mineras y los recursos fiscales, pero el PIB real depende fundamentalmente de la producción y el valor agregado. Así, Chile puede experimentar un auge de rentabilidad sin un auge equivalente de producción.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-09-30_cobre_produccion.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Commodities · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="mercados corp">
-            <summary>
-              <span class="fecha">25 sept 2026</span>
-              <span class="rubro">MK4: la prometida reforma al mercado de capitales que se debate en el Congreso y que recibe alentadores pronósticos</span>
-              <span class="pliegos">7 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>Respaldo transversal, discusión sobre la suficiencia: la cuarta reforma al mercado de capitales desde 2000 ingresó a la Cámara el 9 de septiembre de 2026 con suma urgencia. A diferencia de otras reformas recientes, los cuestionamientos apuntan a si alcanza, no a su objetivo.</p></li>
-                <li><p>El FONAVI es la medida más visible y la más discutida: un fondo administrado por BancoEstado que compraría créditos hipotecarios ya otorgados, con un capital inicial de US$1.500 millones apalancable hasta diez veces. Baja el costo del crédito, pero traslada riesgo hipotecario de largo plazo al balance fiscal.</p></li>
-                <li><p>El cambio más disruptivo está en el gobierno corporativo: la rebaja del quórum de dos tercios a 50+1, el squeeze-out desde 90 % y el voto múltiple reducen el poder de veto de los bloques minoritarios. Ahí es donde se quiebra el consenso.</p></li>
-                <li><p>Efectos reales, pero difíciles de cuantificar: a diferencia de la rebaja del impuesto corporativo, que el CEP estimó en 0,24–0,26 puntos de crecimiento anual, la MK4 no tiene aún una estimación comparable. Opera por canales más lentos: menor costo de capital y mayor profundidad financiera.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-09-25_mk4_mercado_capitales.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Mercados · Finanzas corporativas</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="macro-cl">
-            <summary>
-              <span class="fecha">11 sept 2026</span>
-              <span class="rubro">IPoM de septiembre 2026: menos actividad hoy, más inversión mañana</span>
-              <span class="pliegos">7 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>Actividad más débil de lo previsto: el PIB cayó 0,2 % anual en el segundo trimestre y el Imacec de julio retrocedió 1,5 %. El Banco Central recorta el rango de crecimiento de 2026 desde 1,0–1,75 % a 0,25–0,75 %, pero eleva el de 2028 a 2,25–3,25 %: el ciclo se posterga, no se cancela.</p></li>
-                <li><p>Inflación sin cambios sustantivos: el IPC total ha oscilado en torno a 4 % anual y el subyacente entre 3,2 y 3,4 %, determinados por el alza de los combustibles. La convergencia a 3 % se mantiene en el segundo trimestre de 2027 y las expectativas a dos años siguen ancladas en la meta.</p></li>
-                <li><p>Un mercado laboral que no se recupera: la desocupación subió a 9,5 % (9,3 % desestacionalizada) con destrucción de empleo formal. El deterioro combina factores persistentes —costos laborales y automatización— con un componente cíclico asociado a la debilidad de la demanda interna.</p></li>
-                <li><p>El cobre sostiene las cuentas externas: los términos de intercambio se revisan de 4,2 % a 9,9 % en 2026 y la cuenta corriente pasa de un déficit proyectado de 1,4 % del PIB a un superávit de 0,2 %. El Consejo mantuvo la TPM en 4,5 % y sitúa los riesgos en ambas direcciones.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-09-11_ipom_septiembre.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="macro-gl mercados">
-            <summary>
-              <span class="fecha">31 ago 2026</span>
-              <span class="rubro">La intervención coordinada sobre el yen: más allá del mercado cambiario</span>
-              <span class="pliegos">5 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>Fue la primera compra de yenes exclusivamente bilateral entre Japón y Estados Unidos desde 1998, por un monto entre US$5.000 y US$10.000 millones, y marca un quiebre en la postura tradicionalmente no intervencionista del Tesoro estadounidense.</p></li>
-                <li><p>El Ministerio de Finanzas japonés vendió dólares de sus reservas para comprar yenes tras la caída de la moneda a 164 yenes por dólar, su mínimo en cuatro décadas. Semanas después el Tesoro de EE.UU. sumó compras adicionales financiadas con euros, evitando enviar una señal de debilidad del dólar.</p></li>
-                <li><p>El BoJ mantuvo su tasa en 1 % pese a reconocer efectos de segunda vuelta de la inflación importada, limitado por una deuda pública en torno al 250 % del PIB y un crecimiento de apenas 1 %, lo que hace inviable un ajuste agresivo de tasas.</p></li>
-                <li><p>La coordinación buscó evitar que Japón tuviera que liquidar activos en dólares a gran escala, lo que habría presionado aún más un mercado de bonos largos de EE.UU. ya tensionado, con rendimientos a 30 años en 5,34 %, niveles no vistos desde la crisis subprime.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-08-31_intervencion_yen.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Macro global · Mercados</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="commodities macro-gl">
-            <summary>
-              <span class="fecha">21 ago 2026</span>
-              <span class="rubro">Determinantes del precio del oro y el giro hacia los bancos centrales</span>
-              <span class="pliegos">5 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>El oro carece de flujos de caja, no paga dividendos ni cupones y su rentabilidad depende solo de la apreciación de su precio. Más que una inversión orientada a maximizar retornos, opera como un seguro contra riesgos sistémicos.</p></li>
-                <li><p>Su precio responde a tasas reales, inflación, dólar y apetito por riesgo. Sin embargo, la relación inversa con las tasas reales, cercana a -0,73 entre 2003 y 2022, se desplomó a prácticamente cero desde 2023, cuando el metal se apreció pese a rendimientos reales positivos.</p></li>
-                <li><p>El cambio de comprador marginal explica ese quiebre. Los bancos centrales superaron las mil toneladas anuales entre 2022 y 2024, frente a 473 de promedio en la década previa, tras un congelamiento de reservas rusas que revalorizó al oro como activo sin riesgo de sanción.</p></li>
-                <li><p>Chile se sumó al movimiento, con un Banco Central que volvió a comprar oro en febrero de 2026 tras 26 años. Para el inversionista local, parte de la cobertura que ofrece el metal ya se obtiene mediante exposición al dólar, dado el carácter procíclico del peso.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-08-21_determinantes_oro.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Commodities · Macro global</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="mercados">
-            <summary>
-              <span class="fecha">14 ago 2026</span>
-              <span class="rubro">El desplome de Situational Awareness</span>
-              <span class="pliegos">5 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>Leopold Aschenbrenner, valedictorian de Columbia a los 19 años y ex investigador del equipo de Superalignment de OpenAI, convirtió el ensayo que publicó tras su despido en abril de 2024 en la tesis de inversión de su propio fondo de cobertura.</p></li>
-                <li><p>El hedge fund Situational Awareness LP fue creado en septiembre de 2024 apostando por la infraestructura que alimenta a la IA, semiconductores, centros de datos y energía. El fondo creció desde US$225 millones semilla hasta más de US$20.000 millones en 18 meses, con retornos sobre 1.000 % y un apalancamiento de hasta cuatro veces el capital.</p></li>
-                <li><p>Tras caer un 67 % en julio de 2026 y enfrentar llamadas de margen de Goldman Sachs, JPMorgan y Bank of America exigiendo garantías, el fondo se vio obligado a liquidar un bloque de alrededor de US$16.000 millones de cartera pública a Citadel, con un descuento superior al 10 %.</p></li>
-                <li><p>El fondo no vendió por un cambio en los fundamentales de su tesis de inversión, sino por restricciones de liquidez en su balance. Al operar con apalancamiento no es el dueño sino el acreedor quien decide cuándo vender. En estos casos, una rentabilidad extraordinaria suele reflejar sobreexposición más que generación de alfa.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-08-14_situational_awareness.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Mercados</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="fiscal corp">
-            <summary>
-              <span class="fecha">05 ago 2026</span>
-              <span class="rubro">La reintegración tributaria y el escudo tributario de la deuda</span>
-              <span class="pliegos">6 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>El 4 de agosto de 2026 el Congreso despachó la Ley de Reconstrucción Nacional y Desarrollo Económico y Social. En materia corporativa restablece la integración total del sistema de renta hacia el año tributario 2031. La ley aún no se promulga, ya que quedan pendientes vetos del Ejecutivo y el pronunciamiento del Tribunal Constitucional.</p></li>
-                <li><p>El debate se ha dado en clave de recaudación y sostenibilidad fiscal, pero el régimen de integración fija además un parámetro central de finanzas corporativas. Determina cuánto vale el escudo tributario de la deuda para quien finalmente recibe el flujo.</p></li>
-                <li><p>La cadena lógica parte de Modigliani y Miller: con impuestos corporativos el escudo tributario aumenta el valor de la empresa con deuda. Al incorporar impuestos personales, es relevante modelar el régimen de integración del sistema, ya que un sistema desintegrado reduce el escudo tributario.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-08-05_reintegracion_tributaria.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Política fiscal · Finanzas corporativas</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="equity">
-            <summary>
-              <span class="fecha">11 jun 2026</span>
-              <span class="rubro">SpaceX IPO: entre fundamentales y expectativas</span>
-              <span class="pliegos">7 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>SpaceX saldría a bolsa el 12 de junio de 2026 a US$135 por acción, con una recaudación cercana a US$75.000 millones y una valoración próxima a US$1,75 billones. Sería la mayor IPO registrada, por sobre Alibaba y Saudi Aramco, a un múltiplo cercano a 90 veces ventas.</p></li>
-                <li><p>El valor se sostiene en tres segmentos en etapas distintas. Lanzamientos aporta la base tecnológica y la integración vertical, Starlink es el único negocio rentable con una utilidad operativa cercana a US$1.190 millones en el primer trimestre de 2026, y xAI concentra las pérdidas y el 76 % del Capex del período.</p></li>
-                <li><p>La estructura de la operación favorece la demanda inicial. El free float esperado entre 4 % y 8 % y las nuevas reglas del Nasdaq-100, que permiten entrada rápida y ponderación ajustada por flotación, pueden atraer flujos pasivos relevantes sobre una oferta acotada.</p></li>
-                <li><p>El precio fijo publicado antes del roadshow reduce el rol de los bancos en la formación del libro de órdenes. La pregunta central es cuánto del valor proviene de resultados actuales y cuánto de expectativas sobre Starlink, lanzamientos y la viabilidad de la infraestructura de xAI, lo que anticipa fuerte volatilidad inicial.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-06-11_spacex_ipo.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Renta variable</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="mercados">
-            <summary>
-              <span class="fecha">01 jun 2026</span>
-              <span class="rubro">ETF: récord, gestión activa y su primera gran prueba de estrés</span>
-              <span class="pliegos">6 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>Los activos globales en ETF alcanzaron US$19,9 billones al cierre de 2025, un alza del 33,7 % interanual, con flujos netos récord por US$2,4 billones. Estados Unidos concentra cerca de dos tercios del total, con US$13,43 billones en activos y US$1,50 billones de flujos en el año.</p></li>
-                <li><p>La gestión activa pasó a ser el principal motor de crecimiento dentro del envoltorio ETF. Los ETF activos globales llegaron a US$1,92 billones (+64,5 %) y en EE.UU. captaron el 31 % de los flujos pese a representar solo el 11 % de los activos. Cerca del 85 % de los lanzamientos de 2025 fueron activos y, por primera vez, superaron en número a los pasivos.</p></li>
-                <li><p>La ofensiva de EE.UU. e Israel contra Irán (28 de febrero de 2026) y el cierre del Estrecho de Ormuz empujaron al Brent por sobre los US$113. La respuesta de los ETF fue bifurcada: los fondos de transporte marítimo y energía se dispararon (BWET +411 % en el trimestre), mientras Corea (EWY) y defensa retrocedieron.</p></li>
-                <li><p>La industria aprobó su primer gran stress test geopolítico. Los flujos agregados se mantuvieron netamente positivos durante todo el primer cuatrimestre y los productos conservaron liquidez. La recuperación tras el cese al fuego reforzó la tesis de que estos episodios suelen ser oportunidad de compra antes que catalizador de un mercado bajista prolongado.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-06-01_etf.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Mercados</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="commodities macro-cl">
-            <summary>
-              <span class="fecha">19 may 2026</span>
-              <span class="rubro">Cobre en máximos históricos: oferta estructural, demanda tecnológica y tipo de cambio en Chile</span>
-              <span class="pliegos">6 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>El metal alcanzó US$6,57/lb el 13 de mayo de 2026, máximo histórico con un alza del 42,8 % interanual. La demanda estructural de inteligencia artificial, vehículos eléctricos y redes de energía renovable converge sobre una oferta tensionada por la escasez de ácido sulfúrico derivada del conflicto EE.UU.–Irán.</p></li>
-                <li><p>Pese a que el cobre representa alrededor del 13,6 % del PIB y a la bonanza del metal, la producción cae cerca del 6 % en Q1 2026 y la cadena de suministro acusa el impacto de la escasez de insumos críticos.</p></li>
-                <li><p>El alza del cobre aprecia el peso vía oferta de divisas: las mineras convierten más dólares a pesos para cubrir costos locales, aumentando la oferta de divisas y reduciendo el precio del dólar. La correlación inversa entre precio del cobre y USD/CLP es uno de los rasgos más robustos del mercado cambiario chileno en las últimas dos décadas.</p></li>
-                <li><p>La relación cobre–peso no es mecánica: el tipo de cambio responde también al diferencial de tasas Chile–EE.UU., la balanza comercial y las expectativas fiscales y políticas. La caída productiva de Q1 2026 ilustra además que un precio récord no garantiza mayores ingresos de divisas si el volumen exportado se contrae simultáneamente.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-05-19_cobre.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Commodities · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="fiscal">
-            <summary>
-              <span class="fecha">11 may 2026</span>
-              <span class="rubro">Más allá del 19 %: rebaja del IVA a la vivienda</span>
-              <span class="pliegos">7 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>El impacto real en los precios será muy inferior al 19 % nominal de la medida. La ley excluye el valor del terreno de la base imponible y las constructoras mantienen créditos fiscales inmovilizados que no pueden recuperar fácilmente: la rebaja efectiva se situaría entre un 2 % y un 7 % según proyecciones de la CChC, o en torno al 10 % según consultoras del mercado.</p></li>
-                <li><p>La escasez de suelo urbano asequible y las rigideces regulatorias estructurales mantienen una oferta inmobiliaria altamente inelástica en el país. Acorde al modelo de incidencia tributaria, esta inflexibilidad permite que los oferentes capturen la mayor porción del beneficio fiscal.</p></li>
-                <li><p>La exención resulta ser una política socialmente regresiva y con escasa focalización. Beneficia de forma desproporcionada a inversionistas y hogares de altos ingresos, que son los únicos con real capacidad de ahorro y cumplimiento de los exigentes requisitos del crédito hipotecario actual.</p></li>
-                <li><p>La iniciativa introduce distorsiones en la asignación de capital al reducir artificialmente el costo de reposición y elevar la Q de Tobin del sector. Además, su transitoriedad de 12 meses genera disrupciones intertemporales.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-05-11_iva_vivienda.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Política fiscal</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="macro-cl">
-            <summary>
-              <span class="fecha">28 abr 2026</span>
-              <span class="rubro">RPM de abril: TPM en 4,5 % y mayor cautela ante el riesgo de persistencia inflacionaria</span>
-              <span class="pliegos">3 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>El Consejo del BCCh mantuvo la TPM en 4,5 % por unanimidad, decisión en línea con el consenso de mercado. La pausa monetaria se extiende y el comunicado adopta un sesgo más cauteloso que el del IPoM de marzo.</p></li>
-                <li><p>La prolongación del conflicto en Medio Oriente sostiene el petróleo en niveles elevados y presiona al alza las proyecciones inflacionarias. En contraste, los mercados muestran resiliencia: bolsas al alza, apreciación cambiaria y cobre en torno a US$6 la libra.</p></li>
-                <li><p>La actividad local sorprendió a la baja en febrero (Imacec no minero −0,3 % anual) por factores de oferta, mientras la inversión se desacelera. La inflación total de marzo (2,8 %) superó lo previsto, aunque la subyacente (3,4 %) se mantuvo en línea y las expectativas a dos años continúan ancladas.</p></li>
-                <li><p>El Consejo focaliza su atención en la transmisión y persistencia inflacionaria, sin orientación explícita sobre el próximo movimiento. En este escenario, no anticipamos recortes adicionales de TPM en el corto plazo.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-04-28_rpm_abril.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="commodities macro-gl">
-            <summary>
-              <span class="fecha">24 abr 2026</span>
-              <span class="rubro">El shock petrolero de 2026: reconfiguración global y desafíos para la política monetaria en Chile</span>
-              <span class="pliegos">4 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>El Banco Central enfrenta un complejo dilema: el shock petrolero impulsa el IPC hacia un 4 % para el segundo trimestre de 2026. La autoridad debe calibrar la TPM con extrema cautela para evitar que los efectos de segunda vuelta y el pass-through cambiario desanclen las expectativas inflacionarias.</p></li>
-                <li><p>A diferencia de otros importadores netos, Chile cuenta con la resiliencia del cobre impulsado por la IA y la transición energética. Este viento de cola en los términos de intercambio actúa como un amortiguador macroeconómico, otorgando un margen de maniobra crucial para absorber el shock externo.</p></li>
-                <li><p>El cierre del Estrecho de Ormuz genera una transferencia masiva de bienestar hacia exportadores fuera del Golfo Pérsico (EE.UU., Rusia, Brasil). Mientras estos países perciben ingresos fiscales extraordinarios, los grandes importadores asiáticos enfrentan presiones en sus cuentas corrientes y suministros.</p></li>
-                <li><p>Aunque la menor intensidad energética global limita el impacto al 0,5 % del PIB mundial, el shock actúa como un catalizador estructural. La vulnerabilidad expuesta forzará a las potencias a acelerar inversiones en seguridad energética y a adelantar la transición hacia matrices limpias para reducir la dependencia geopolítica del crudo.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-04-24_shock_petrolero.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Commodities · Macro global</span>
-              </div>
-            </div>
-          </details>
-
-          <details class="informe surge" data-temas="fiscal macro-cl">
-            <summary>
-              <span class="fecha">17 abr 2026</span>
-              <span class="rubro">El ajuste fiscal de la administración de Kast: magnitud y efecto sobre el crecimiento 2026–2028</span>
-              <span class="pliegos">6 pp. <i class="cruz" aria-hidden="true"></i></span>
-            </summary>
-            <div class="detalle">
-              <ol class="claves">
-                <li><p>El Consejo Fiscal Autónomo constató un déficit estructural del 3,6 % del PIB en 2025, superando ampliamente las metas. Ante el riesgo de que la deuda sobrepase el nivel prudente del 45 %, se declaró emergencia fiscal.</p></li>
-                <li><p>El gobierno implementará un recorte de US$3.800 millones en 2026, equivalente al 1,1 % del PIB, enfocado principalmente en gasto ministerial. Los US$3.000 millones restantes del plan se integrarán en la Ley de Presupuestos 2027.</p></li>
-                <li><p>El costo directo sobre el crecimiento se distribuye en el tiempo: entre 0,4 y 0,5 pp en 2026 y un arrastre adicional de 0,6 a 0,8 pp en 2027, con efecto acumulado de 1,0 a 1,3 pp. El impacto es acotado porque el recorte cae sobre gasto corriente, de menor multiplicador que la inversión pública.</p></li>
-                <li><p>A mediano plazo, una consolidación fiscal creíble reduciría premios por riesgo y reactivaría la inversión privada. De funcionar este mecanismo, el costo se disiparía hacia fines de 2027, permitiendo que la economía converja a su crecimiento tendencial en 2028.</p></li>
-              </ol>
-              <div class="pie-informe">
-                <a class="abrir" href="informes/2026-04-17_ajuste_fiscal.pdf" target="_blank" rel="noopener">Abrir informe ↗</a>
-                <span class="marbete">Política fiscal · Macro Chile</span>
-              </div>
-            </div>
-          </details>
-
-        </div>
-
-        <p class="vacio" id="vacio" hidden>No hay informes de este tema todavía.</p>
-      </div>
-
+<section id="formacion" class="reveal">
+  <div class="title"><span class="n mono">03.</span>Formación</div>
+  <div class="timeline">
+    <div class="item">
+      <div class="head"><h3><span class="org">Universidad de Chile — FEN</span></h3><span class="date mono">2021 — 2025</span></div>
+      <div class="role">Ingeniero Comercial, Mención Ciencias Económicas · Minor Macrofinanzas y Banca</div>
+      <ul>
+        <li>Ayudante de Finanzas II (Prof. Julio Rebolledo): valoración de empresas por DCF, financiamiento interno y estructura de capital.</li>
+        <li>Investigaciones académicas en riesgo de crédito, economía laboral e innovación financiera y sostenible (fintech).</li>
+      </ul>
     </div>
   </div>
+</section>
 
-  <section class="nube surge" aria-labelledby="nube-rotulo">
-    <div class="env">
-      <div class="barra">
-        <p class="rotulo" id="nube-rotulo">Temas recurrentes</p>
-      </div>
-      <div class="voces">
-        <span class="voz voz-c" style="--s:1.28rem" title="16 menciones">vivienda</span>
-        <span class="voz voz-b" style="--s:1.67rem" title="26 menciones">costos</span>
-        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">PIB</span>
-        <span class="voz voz-b" style="--s:1.33rem" title="17 menciones">tasas</span>
-        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">alza</span>
-        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">impacto</span>
-        <span class="voz voz-b" style="--s:1.67rem" title="26 menciones">activos</span>
-        <span class="voz voz-b" style="--s:1.53rem" title="22 menciones">dólar</span>
-        <span class="voz voz-c" style="--s:1.19rem" title="14 menciones">global</span>
-        <span class="voz voz-c" style="--s:1.15rem" title="13 menciones">inteligencia artificial</span>
-        <span class="voz voz-c" style="--s:1.04rem" title="11 menciones">gasto</span>
-        <span class="voz voz-b" style="--s:1.33rem" title="17 menciones">oro</span>
-        <span class="voz voz-c" style="--s:0.91rem" title="9 menciones">TPM</span>
-        <span class="voz voz-b" style="--s:1.56rem" title="23 menciones">crecimiento</span>
-        <span class="voz voz-b" style="--s:1.45rem" title="20 menciones">demanda</span>
-        <span class="voz voz-a" style="--s:2.4rem" title="50 menciones">precios</span>
-        <span class="voz voz-c" style="--s:1.15rem" title="13 menciones">deuda</span>
-        <span class="voz voz-c" style="--s:0.98rem" title="10 menciones">inflación</span>
-        <span class="voz voz-c" style="--s:1.04rem" title="11 menciones">petróleo</span>
-        <span class="voz voz-a" style="--s:2.12rem" title="40 menciones">ETF</span>
-        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">tipo de cambio</span>
-        <span class="voz voz-b" style="--s:1.28rem" title="16 menciones">shock</span>
-        <span class="voz voz-a" style="--s:1.9rem" title="33 menciones">mercado</span>
-        <span class="voz voz-a" style="--s:1.77rem" title="29 menciones">oferta</span>
-        <span class="voz voz-b" style="--s:1.56rem" title="23 menciones">inversión</span>
-        <span class="voz voz-b" style="--s:1.41rem" title="19 menciones">flujos</span>
-        <span class="voz voz-a" style="--s:1.87rem" title="32 menciones">fiscal</span>
-        <span class="voz voz-a" style="--s:1.7rem" title="27 menciones">cobre</span>
-        <span class="voz voz-c" style="--s:1.19rem" title="14 menciones">expectativas</span>
-        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">ajuste</span>
-        <span class="voz voz-c" style="--s:1.24rem" title="15 menciones">estructural</span>
-        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">energía</span>
-        <span class="voz voz-c" style="--s:0.91rem" title="9 menciones">valoración</span>
-        <span class="voz voz-b" style="--s:1.49rem" title="21 menciones">capital</span>
-        <span class="voz voz-b" style="--s:1.49rem" title="21 menciones">impuestos</span>
-        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">IPO</span>
-        <span class="voz voz-c" style="--s:0.8rem" title="8 menciones">centros de datos</span>
-        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">ingresos</span>
-        <span class="voz voz-c" style="--s:1.04rem" title="11 menciones">política monetaria</span>
-        <span class="voz voz-c" style="--s:1.09rem" title="12 menciones">riesgo</span>
-      </div>
-      <p class="nube-pie">Términos más frecuentes en el texto de los informes publicados a la fecha.</p>
+<section id="proyectos" class="reveal">
+  <div class="title"><span class="n mono">04.</span>Proyectos</div>
+  <h3 class="subtitle">Proyectos de IA</h3>
+  <div class="grid">
+    <div class="card"><div class="ic">🌾</div><h3>Dashboard de mercados agro con IA</h3>
+      <p>Tablero construido con Claude que sigue 14 variables de la agroindustria (granos, azúcar, Brent, tipos de cambio y derivados de soya), con rendimientos, histórico de hasta 5 años y correlaciones entre series.</p>
+      <div class="tags"><span class="tag">IA</span><span class="tag">Commodities</span><span class="tag">Correlaciones</span></div>
+      <a class="more mono" href="docs%20github/dashboard-agro.html" target="_blank">Ver dashboard →</a></div>
+    <div class="card"><div class="ic">🤖</div><h3>Dashboards y agentes con IA</h3>
+      <p>Tableros de mercado y agentes de IA construidos con Claude para automatizar análisis.</p>
+      <div class="tags"><span class="tag">IA</span><span class="tag">Claude</span><span class="tag">Dashboards</span></div></div>
+  </div>
+  <h3 class="subtitle">Ideas innovadoras</h3>
+  <div class="grid">
+    <div class="card"><div class="ic">🌱</div><h3>Vertok: fintech verde</h3>
+      <p>Propuesta de fintech sostenible, "del suelo al token": tokenización de terrenos forestales y créditos de carbono para conectar a inversionistas con proyectos de impacto climático.</p>
+      <div class="tags"><span class="tag">Fintech</span><span class="tag">Tokenización</span><span class="tag">Créditos de carbono</span></div>
+      <a class="more mono" href="docs%20github/Fintech%20Vertok.pdf" target="_blank">Ver presentación →</a></div>
+    <div class="card"><div class="ic">⛓️</div><h3>Financiamiento con activos digitales</h3>
+      <p>Investigación sobre nuevas formas de financiamiento con blockchain, presentada al fundador y CEO de Cumplo.</p>
+      <div class="tags"><span class="tag">Blockchain</span><span class="tag">Fintech</span></div></div>
+  </div>
+  <h3 class="subtitle">Proyectos académicos</h3>
+  <div class="grid">
+    <div class="card"><div class="ic">🏘️</div><h3>Evaluación social: Santiago Cocina</h3>
+      <p>Análisis de rentabilidad social de la cocina comunitaria de CORDESAN para microemprendedores chilenos y refugiados: marco lógico, análisis costo-beneficio, simulación de impacto y sensibilización.</p>
+      <div class="tags"><span class="tag">ACB</span><span class="tag">Marco lógico</span><span class="tag">Evaluación de impacto</span></div>
+      <a class="more mono" href="docs%20github/EVS%20Santiago%20Cocina.pdf" target="_blank">Ver informe →</a></div>
+    <div class="card"><div class="ic">💳</div><h3>Riesgo de crédito con data alternativa</h3>
+      <p>Modelo logit que usa patrones de consumo (EPF) junto con data tradicional (EFH), emparejadas con propensity score matching, para predecir el impago de hogares bancarizados y no bancarizados. Los modelos combinados superan un AUC de 0,90.</p>
+      <div class="tags"><span class="tag">Logit</span><span class="tag">PSM</span><span class="tag">AUC-ROC</span><span class="tag">Stata</span></div>
+      <a class="more mono" href="docs%20github/Paper%20Final%20Riesgo.pdf" target="_blank">Ver paper →</a></div>
+  </div>
+  <h3 class="subtitle">Informes Club de Finanzas FEN</h3>
+  <div class="grid">
+    <div class="card"><div class="ic">🚀</div><h3>SpaceX IPO: entre fundamentales y expectativas</h3>
+      <p>Análisis de la que sería la mayor IPO de la historia: valoración por segmentos (lanzamientos, Starlink y xAI), estructura de la oferta y efecto de las nuevas reglas del Nasdaq-100.</p>
+      <div class="tags"><span class="tag">Equity</span><span class="tag">IPO</span><span class="tag">Valoración</span><span class="tag">Jun 2026</span></div>
+      <a class="more mono" href="https://club-de-finanzas-fen.github.io/informes/2026-06-11_spacex_ipo.pdf" target="_blank" rel="noopener">Ver informe →</a></div>
+    <div class="card"><div class="ic">💴</div><h3>La intervención coordinada sobre el yen: más allá del mercado cambiario</h3>
+      <p>La primera compra bilateral de yenes entre Japón y EE.UU. desde 1998, las restricciones del BoJ y su vínculo con la presión sobre los bonos largos del Tesoro.</p>
+      <div class="tags"><span class="tag">Macro global</span><span class="tag">Divisas</span><span class="tag">Bancos centrales</span><span class="tag">Ago 2026</span></div>
+      <a class="more mono" href="https://club-de-finanzas-fen.github.io/informes/2026-08-31_intervencion_yen.pdf" target="_blank" rel="noopener">Ver informe →</a></div>
+    <div class="card"><div class="ic">🌉</div><h3>Pontes: conectando la tokenización con el sistema de pagos tradicional europeo</h3>
+      <p>Cómo Pontes conecta las plataformas DLT con T2 para liquidar activos tokenizados en dinero de banco central, y su comparación con el switch DvP de ComBanc en Chile.</p>
+      <div class="tags"><span class="tag">Tokenización</span><span class="tag">Sistemas de pago</span><span class="tag">BCE</span><span class="tag">Oct 2026</span></div>
+      <a class="more mono" href="https://club-de-finanzas-fen.github.io/informes/2026-10-09_pontes_tokenizacion.pdf" target="_blank" rel="noopener">Ver informe →</a></div>
+    <div class="card"><div class="ic">📉</div><h3>Fondo E: la paradoja del fondo más conservador de las AFP</h3>
+      <p>Por qué el fondo más conservador cayó 10,39 % real en 2026: el crecimiento de los swaps de tasas, el aumento de duración y los incentivos de la competencia entre AFP.</p>
+      <div class="tags"><span class="tag">Pensiones</span><span class="tag">Renta fija</span><span class="tag">Derivados</span><span class="tag">Oct 2026</span></div>
+      <a class="more mono" href="https://club-de-finanzas-fen.github.io/informes/2026-10-23_fondo_e_afp.pdf" target="_blank" rel="noopener">Ver informe →</a></div>
+    <div class="card"><div class="ic">🏦</div><h3>Ueno Bank: el corralito paraguayo</h3>
+      <p>La resolución de Ueno Bank por el Banco Central del Paraguay: créditos a empresas relacionadas, crisis institucional y canales de contagio hacia la banca y los pagos digitales.</p>
+      <div class="tags"><span class="tag">Banca</span><span class="tag">Regulación</span><span class="tag">Sistemas de pago</span><span class="tag">Nov 2026</span></div>
+      <a class="more mono" href="https://club-de-finanzas-fen.github.io/informes/2026-11-06_ueno_bank.pdf" target="_blank" rel="noopener">Ver informe →</a></div>
+  </div>
+</section>
+
+<section id="actividades" class="reveal">
+  <div class="title"><span class="n mono">05.</span>Actividades</div>
+  <div class="grid">
+    <div class="card"><div class="ic">📈</div><h3>Club de Finanzas FEN</h3>
+      <p>Head of Research: coordino las publicaciones, los flashes económicos y los informes del club.</p>
+      <a class="more mono" href="https://club-de-finanzas-fen.github.io/" target="_blank">Visitar sitio del club →</a></div>
+    <div class="card"><div class="ic">🎓</div><h3>Ayudantía Finanzas II</h3>
+      <p>Apoyo docente en valoración de empresas y estructura de capital.</p></div>
+    <div class="card"><div class="ic">✏️</div><h3>Profesor de Matemáticas</h3>
+      <p>Clases para estudiantes de primero y segundo medio (2022).</p></div>
+  </div>
+</section>
+
+<section id="habilidades" class="reveal">
+  <div class="title"><span class="n mono">06.</span>Habilidades</div>
+  <div class="skills">
+    <div class="card"><h4>Herramientas</h4><div class="tags"><span class="tag">Excel avanzado</span><span class="tag">PowerPoint</span><span class="tag">Stata</span><span class="tag">LaTeX / Overleaf</span><span class="tag">GitHub</span><span class="tag">Python (básico)</span></div></div>
+    <div class="card"><h4>Finanzas</h4><div class="tags"><span class="tag">Valoración DCF</span><span class="tag">Renta fija</span><span class="tag">Macroeconomía</span><span class="tag">Mercado de capitales</span><span class="tag">Fintech</span></div></div>
+    <div class="card"><h4>IA & Datos</h4><div class="tags"><span class="tag">Dashboards</span><span class="tag">Agentes con Claude</span><span class="tag">Análisis de datos</span></div></div>
+    <div class="card"><h4>Idiomas</h4><div class="tags"><span class="tag">Español (nativo)</span><span class="tag">Inglés (avanzado)</span></div></div>
+  </div>
+</section>
+
+<section id="contacto" class="reveal">
+  <div class="contact">
+    <div class="title" style="justify-content:center"><span class="n mono">07.</span>Contacto</div>
+    <p>¿Quieres conversar sobre finanzas, research o una oportunidad laboral? Escríbeme.</p>
+    <div class="btns">
+      <a class="btn fill" href="mailto:rmazuela@fen.uchile.cl">rmazuela@fen.uchile.cl</a>
+      <a class="btn" href="https://www.linkedin.com/in/ram%C3%B3n-mazuela-barr%C3%ADa-8b4698320/" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/rmazuela10" target="_blank">GitHub</a>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
-<footer class="colofon">
-  <div class="env">
-    <i class="buho" aria-hidden="true"></i>
-    <p class="aviso">Estos informes responden a un propósito estrictamente académico y formativo, enmarcado en el quehacer universitario, y en ningún caso deben interpretarse como una recomendación o asesoría de inversión.</p>
-    <p class="remate">Club de Finanzas FEN UChile · Área de Research · <a href="https://joaquin-vmo.github.io/" target="_blank" rel="noopener">joaquin-vmo.github.io</a></p>
-  </div>
-</footer>
-</body>
-</html>
+<footer class="mono">© 2026 Ramón Mazuela Barría · Hecho con GitHub Pages</footer>
 
 <script>
-(function () {
-  "use strict";
-  /* Las listas se leen del propio documento: para publicar basta con agregar
-     la ficha <details> al HTML. Los contadores de la portada, de las puertas
-     y de las barras se recalculan solos; no hay números escritos a mano. */
-  var todos    = Array.prototype.slice.call(document.querySelectorAll(".informe"));
-  var flashes  = todos.filter(function (a) { return a.classList.contains("flash"); });
-  var informes = todos.filter(function (a) { return !a.classList.contains("flash"); });
-
-  var chips    = Array.prototype.slice.call(document.querySelectorAll("#temas .tema"));
-  var chipsFla = Array.prototype.slice.call(document.querySelectorAll("#temas-flash .tema"));
-  var conteo   = document.getElementById("conteo-n");
-  var conteoFl = document.getElementById("conteo-flash");
-  var vacio    = document.getElementById("vacio");
-  var vacioFla = document.getElementById("vacio-flash");
-  var folio    = document.getElementById("folio-n");
-  var quieto   = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function fijar(id, texto) {
-    var el = document.getElementById(id);
-    if (el) { el.textContent = texto; }
-  }
-
-  /* ── cifras: portada, puertas y barras ─────────────────── */
-  var MESES = ["ene","feb","mar","abr","may","jun",
-               "jul","ago","sept","oct","nov","dic"];
-
-  function periodo() {
-    /* Lee los <span class="fecha"> y arma el rango "abr – sept 2026". */
-    var primera = null, ultima = null;
-    todos.forEach(function (art) {
-      var t = art.querySelector(".fecha");
-      if (!t) { return; }
-      var p = t.textContent.trim().split(/\s+/);          /* ["8","sept","2026"] */
-      if (p.length < 3) { return; }
-      var m = MESES.indexOf(p[1].replace(".", "").toLowerCase());
-      var a = parseInt(p[2], 10);
-      if (m === -1 || isNaN(a)) { return; }
-      var clave = a * 12 + m;
-      if (primera === null || clave < primera.clave) { primera = {clave:clave, m:m, a:a}; }
-      if (ultima  === null || clave > ultima.clave)  { ultima  = {clave:clave, m:m, a:a}; }
-    });
-    if (!primera || !ultima) { return null; }
-    var cabeza = primera.a === ultima.a
-      ? MESES[primera.m]
-      : MESES[primera.m] + " <small>" + primera.a + "</small>";
-    return cabeza + " <small>–</small> " + MESES[ultima.m] +
-           " <small>" + ultima.a + "</small>";
-  }
-
-  fijar("portada-informes", String(informes.length));
-  fijar("portada-flash",    String(flashes.length));
-  fijar("n-informes",       String(informes.length));
-  fijar("n-flash",          String(flashes.length));
-  fijar("conteo-flash",     String(flashes.length));
-
-  var rango = periodo();
-  var elPeriodo = document.getElementById("portada-periodo");
-  if (rango && elPeriodo) { elPeriodo.innerHTML = rango; }
-
-  /* ── tapa: se arma leyendo las fichas del propio archivo ─ */
-  function texto(ficha, sel) {
-    var el = ficha.querySelector(sel);
-    return el ? el.textContent.trim() : "";
-  }
-
-  function recortar(t, max) {
-    if (t.length <= max) { return t; }
-    var corte = t.slice(0, max);
-    var esp = corte.lastIndexOf(" ");
-    return (esp > max * 0.6 ? corte.slice(0, esp) : corte).replace(/[,;:.\s]+$/, "") + "…";
-  }
-
-  function armarTapa() {
-    var tapa = document.getElementById("tapa");
-    if (!tapa || !informes.length) { return; }
-
-    /* Nota principal: el informe largo más reciente. */
-    var top = informes[0];
-    var pdf = top.querySelector("a.abrir");
-    document.getElementById("nota-fecha").textContent = texto(top, ".fecha");
-
-    var tit = document.getElementById("nota-tit");
-    tit.textContent = texto(top, ".rubro");
-
-    var clave = top.querySelector(".claves p");
-    document.getElementById("nota-bajada").textContent =
-      clave ? recortar(clave.textContent.trim(), 230) : "";
-
-    var abrir1 = document.getElementById("nota-abrir");
-    if (pdf) {
-      tit.href = abrir1.href = pdf.getAttribute("href");
-    } else {
-      tit.removeAttribute("href");
-      abrir1.hidden = true;
-    }
-
-    /* Secundarias: los dos flash más recientes. */
-    var caja = document.getElementById("lista-mini");
-    flashes.slice(0, 2).forEach(function (f) {
-      var enlace = f.querySelector("a.abrir");
-      var art = document.createElement("article");
-      art.className = "mini";
-
-      var alto = document.createElement("div");
-      alto.className = "mini-alto";
-
-      var fecha = document.createElement("span");
-      fecha.className = "mini-fecha";
-      fecha.textContent = texto(f, ".fecha");
-
-      var cifra = document.createElement("span");
-      cifra.className = "cifra-flash";
-      cifra.textContent = texto(f, ".cifra-flash");
-
-      alto.appendChild(fecha);
-      alto.appendChild(cifra);
-
-      var a = document.createElement("a");
-      a.className = "mini-tit";
-      a.textContent = texto(f, ".rubro");
-      if (enlace) {
-        a.href = enlace.getAttribute("href");
-        a.target = "_blank";
-        a.rel = "noopener";
-      }
-
-      art.appendChild(alto);
-      art.appendChild(a);
-      caja.appendChild(art);
-    });
-
-    if (!flashes.length) {
-      var sec = caja.parentNode;
-      if (sec) { sec.hidden = true; }
-    }
-
-    tapa.hidden = false;
-  }
-
-  armarTapa();
-
-  /* ── las dos puertas: Informes y Flash ─────────────────── */
-  var puertas = Array.prototype.slice.call(document.querySelectorAll(".puerta"));
-
-  function revelar(panel) {
-    /* Los paneles nacen ocultos, así que su animación de entrada se
-       dispara a mano al abrirlos. */
-    Array.prototype.forEach.call(panel.querySelectorAll(".surge"), function (el) {
-      el.classList.add("dentro");
-    });
-  }
-
-  function abrir(id, mover) {
-    puertas.forEach(function (b) {
-      var destino = b.getAttribute("data-panel");
-      var panel   = document.getElementById(destino);
-      var activa  = destino === id;
-      b.setAttribute("aria-expanded", String(activa));
-      if (panel) {
-        panel.hidden = !activa;
-        if (activa) { revelar(panel); }
-      }
-    });
-    if (id && mover) {
-      var abierta = document.getElementById(id === "panel-informes"
-        ? "puerta-informes" : "puerta-flash");
-      if (abierta) {
-        abierta.scrollIntoView({ behavior: quieto ? "auto" : "smooth", block: "start" });
-      }
-    }
-    if (id && history.replaceState) {
-      history.replaceState(null, "", "#" + (id === "panel-informes" ? "informes" : "flash"));
-    }
-  }
-
-  puertas.forEach(function (b) {
-    b.addEventListener("click", function () {
-      var yaAbierta = b.getAttribute("aria-expanded") === "true";
-      abrir(yaAbierta ? null : b.getAttribute("data-panel"), !yaAbierta);
-    });
-  });
-
-  /* Los enlaces de la tapa abren el apartado que corresponde. */
-  var irInf = document.getElementById("ir-informes");
-  var irFla = document.getElementById("ir-flash");
-  if (irInf) { irInf.addEventListener("click", function () { abrir("panel-informes", true); }); }
-  if (irFla) { irFla.addEventListener("click", function () { abrir("panel-flash", true); }); }
-
-  /* Permite llegar directo con club-de-finanzas-fen.github.io/#flash */
-  var ancla = (window.location.hash || "").replace("#", "");
-  if (ancla === "flash")    { abrir("panel-flash", false); }
-  if (ancla === "informes") { abrir("panel-informes", false); }
-
-  /* ── filtro por tema (solo el archivo de informes) ──────── */
-  function filtrar(tema) {
-    var vivos = 0;
-    informes.forEach(function (art) {
-      var temas = (art.getAttribute("data-temas") || "").split(" ");
-      var pasa  = tema === "*" || temas.indexOf(tema) !== -1;
-      art.hidden = !pasa;
-      if (!pasa) { art.open = false; }
-      if (pasa) { vivos++; }
-    });
-    conteo.textContent = vivos;
-    vacio.hidden = vivos !== 0;
-  }
-
-  filtrar("*");
-
-  /* ── filtro por indicador (solo los flash) ─────────────── */
-  function filtrarFlash(tema) {
-    var vivos = 0;
-    flashes.forEach(function (art) {
-      var temas = (art.getAttribute("data-temas") || "").split(" ");
-      var pasa  = tema === "*" || temas.indexOf(tema) !== -1;
-      art.hidden = !pasa;
-      if (!pasa) { art.open = false; }
-      if (pasa) { vivos++; }
-    });
-    if (conteoFl) { conteoFl.textContent = vivos; }
-    if (vacioFla) { vacioFla.hidden = vivos !== 0; }
-  }
-
-  chipsFla.forEach(function (chip) {
-    chip.addEventListener("click", function () {
-      chipsFla.forEach(function (o) { o.setAttribute("aria-pressed", String(o === chip)); });
-      filtrarFlash(chip.getAttribute("data-tema"));
-    });
-  });
-
-  filtrarFlash("*");
-
-  chips.forEach(function (chip) {
-    chip.addEventListener("click", function () {
-      chips.forEach(function (o) { o.setAttribute("aria-pressed", String(o === chip)); });
-      filtrar(chip.getAttribute("data-tema"));
-    });
-  });
-
-  /* ── un solo informe abierto a la vez ──────────────────── */
-  todos.forEach(function (art) {
-    art.addEventListener("toggle", function () {
-      if (!art.open) { return; }
-      todos.forEach(function (otro) { if (otro !== art) { otro.open = false; } });
-    });
-  });
-
-  /* ── el encabezado se pagina como el documento ─────────── */
-  var tictac = false;
-  function paginar() {
-    tictac = false;
-    var corte = window.innerHeight * 0.42;
-    var n = 1;
-    var vistos = 0;
-    for (var i = 0; i < todos.length; i++) {
-      /* offsetParent es null si la ficha está dentro de un panel cerrado. */
-      if (todos[i].hidden || todos[i].offsetParent === null) { continue; }
-      vistos++;
-      if (todos[i].getBoundingClientRect().top < corte) { n = vistos + 1; }
-    }
-    folio.textContent = n;
-  }
-  window.addEventListener("scroll", function () {
-    if (!tictac) { tictac = true; window.requestAnimationFrame(paginar); }
-  }, { passive: true });
-  paginar();
-
-  /* ── entrada escalonada ────────────────────────────────── */
-  var surgen = document.querySelectorAll(".surge");
-  if (quieto || !("IntersectionObserver" in window)) {
-    Array.prototype.forEach.call(surgen, function (el) { el.classList.add("dentro"); });
-    return;
-  }
-  var ojo = new IntersectionObserver(function (entradas) {
-    entradas.forEach(function (e, i) {
-      if (!e.isIntersecting) { return; }
-      var el = e.target;
-      window.setTimeout(function () { el.classList.add("dentro"); }, i * 55);
-      ojo.unobserve(el);
-    });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
-  Array.prototype.forEach.call(surgen, function (el) { ojo.observe(el); });
-}());
+const io=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('show')),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const links=document.querySelectorAll('nav ul a');
+const so=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+x.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(el=>so.observe(el));
 </script>
+</body>
+</html>
